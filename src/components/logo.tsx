@@ -8,7 +8,7 @@ type LogoProps = {
 export function Logo({ className }: LogoProps) {
   return (
     <Image
-      src="/images/logo.svg"
+      src="/logo.svg"
       alt="Grison Club Logo"
       width={40}
       height={40}
