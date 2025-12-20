@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, MapPin } from 'lucide-react';
-import HeaderImage from '../../../image/Image entête.png';
+import HeaderImage from '../../../image/header.png';
 
 
 export default function Hero() {
