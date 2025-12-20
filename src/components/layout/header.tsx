@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Menu, Heart, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -12,6 +11,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from '@/components/ui/sheet';
+import { Logo } from '../logo';
 
 const navLinks = [
   { href: '#a-propos', label: 'À propos' },
@@ -55,13 +55,7 @@ export default function Header() {
           className="flex items-center gap-2"
           onClick={() => window.scrollTo(0, 0)}
         >
-          <Image
-            src="/logo.png"
-            alt="Grison Club Logo"
-            width={40}
-            height={40}
-            className="h-10 w-auto"
-          />
+          <Logo className="h-10 w-auto" />
           <span
             className={cn(
               'text-2xl font-bold tracking-tight',
@@ -89,7 +83,7 @@ export default function Header() {
               {link.label}
             </button>
           ))}
-          <Button className="bg-primary hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-emerald-500/30">
+          <Button className="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-primary/30">
             <Heart size={18} className="mr-2" />
             Faire un Don
           </Button>

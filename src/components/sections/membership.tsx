@@ -43,39 +43,39 @@ export default function Membership() {
   }
 
   return (
-    <section id="adhesion" className="py-20 bg-emerald-900 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+    <section id="adhesion" className="py-20 bg-orange-900/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
 
         <div className="container mx-auto px-4 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
                 <div className="text-white">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">Rejoignez la famille Grison</h2>
-                    <p className="text-emerald-100 text-lg mb-8 leading-relaxed">
+                    <p className="text-orange-100 text-lg mb-8 leading-relaxed">
                         Devenir membre, c'est bien plus que payer une cotisation. C'est rejoindre un réseau d'élite engagé pour le développement de la Guinée.
                     </p>
                     
                     <div className="space-y-8">
                         <div className="flex gap-4">
-                            <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center font-bold border border-emerald-600 shrink-0">1</div>
+                            <div className="w-10 h-10 rounded-full bg-orange-800/50 flex items-center justify-center font-bold border border-orange-600 shrink-0">1</div>
                             <div>
                                 <h4 className="font-bold text-xl mb-1">Demande d'adhésion</h4>
-                                <p className="text-emerald-200 text-sm">Remplissez le formulaire de pré-adhésion ci-contre.</p>
+                                <p className="text-orange-200 text-sm">Remplissez le formulaire de pré-adhésion ci-contre.</p>
                             </div>
                         </div>
                         <div className="flex gap-4">
-                            <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center font-bold border border-emerald-600 shrink-0">2</div>
+                            <div className="w-10 h-10 rounded-full bg-orange-800/50 flex items-center justify-center font-bold border border-orange-600 shrink-0">2</div>
                             <div>
                                 <h4 className="font-bold text-xl mb-1">Validation & Paiement</h4>
-                                <p className="text-emerald-200 text-sm">Après examen du dossier, réglez vos frais d'entrée.</p>
+                                <p className="text-orange-200 text-sm">Après examen du dossier, réglez vos frais d'entrée.</p>
                             </div>
                         </div>
                         <div className="flex gap-4">
-                            <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center font-bold border border-emerald-600 shrink-0">3</div>
+                            <div className="w-10 h-10 rounded-full bg-orange-800/50 flex items-center justify-center font-bold border border-orange-600 shrink-0">3</div>
                             <div>
                                 <h4 className="font-bold text-xl mb-1">Intégration</h4>
-                                <p className="text-emerald-200 text-sm">Recevez votre carte de membre et rejoignez un club.</p>
+                                <p className="text-orange-200 text-sm">Recevez votre carte de membre et rejoignez un club.</p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ export default function Membership() {
                     <div className="mt-10 p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
                         <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-4">
                             <span>Frais d'adhésion (Unique)</span>
-                            <span className="font-bold text-xl text-emerald-300">50 000 GNF</span>
+                            <span className="font-bold text-xl text-orange-300">50 000 GNF</span>
                         </div>
                         <div className="flex justify-between items-center">
                             <span>Cotisation Annuelle</span>
@@ -104,7 +104,7 @@ export default function Membership() {
                                 <FormItem>
                                 <FormLabel className="text-sm font-semibold text-slate-700">Prénom</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Votre prénom" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200" />
+                                    <Input placeholder="Votre prénom" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-orange-200" />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
@@ -117,7 +117,7 @@ export default function Membership() {
                                 <FormItem>
                                 <FormLabel className="text-sm font-semibold text-slate-700">Nom</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Votre nom" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200" />
+                                    <Input placeholder="Votre nom" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-orange-200" />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>
@@ -131,7 +131,7 @@ export default function Membership() {
                             <FormItem>
                             <FormLabel className="text-sm font-semibold text-slate-700">Email</FormLabel>
                             <FormControl>
-                                <Input placeholder="exemple@email.com" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200" />
+                                <Input placeholder="exemple@email.com" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-orange-200" />
                             </FormControl>
                             <FormMessage />
                             </FormItem>
@@ -145,7 +145,7 @@ export default function Membership() {
                             <FormLabel className="text-sm font-semibold text-slate-700">Club d'intérêt</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
-                                <SelectTrigger className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200">
+                                <SelectTrigger className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-orange-200">
                                     <SelectValue placeholder="Sélectionnez un club" />
                                 </SelectTrigger>
                                 </FormControl>
@@ -167,7 +167,7 @@ export default function Membership() {
                                 <FormItem>
                                 <FormLabel className="text-sm font-semibold text-slate-700">Motivation (courte)</FormLabel>
                                 <FormControl>
-                                    <Textarea placeholder="Pourquoi souhaitez-vous nous rejoindre ?" {...field} rows={3} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200" />
+                                    <Textarea placeholder="Pourquoi souhaitez-vous nous rejoindre ?" {...field} rows={3} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-orange-200" />
                                 </FormControl>
                                 <FormMessage />
                                 </FormItem>

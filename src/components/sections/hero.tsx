@@ -29,12 +29,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60"></div>
       </div>
       <div className="container mx-auto px-4 relative z-10 text-center text-white mt-16">
-        <div className="inline-block px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-900/30 backdrop-blur-sm text-emerald-300 font-semibold mb-6">
+        <div className="inline-block px-4 py-1.5 rounded-full border border-orange-400/30 bg-orange-900/30 backdrop-blur-sm text-orange-300 font-semibold mb-6">
           Association à but non lucratif • Guinée
         </div>
         <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
           Former, Inspirer, <br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">
             Agir pour Demain
           </span>
         </h1>
@@ -42,7 +42,7 @@ export default function Hero() {
           Rejoignez le mouvement Grison Club pour une transformation sociale durable à travers l'éducation, la culture et la protection de notre environnement.
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-          <Button onClick={() => scrollToSection('adhesion')} size="lg" className="w-full md:w-auto bg-primary hover:bg-emerald-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/40">
+          <Button onClick={() => scrollToSection('adhesion')} size="lg" className="w-full md:w-auto bg-primary hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-primary/40">
             Devenir Membre <ChevronRight size={20} className="ml-2" />
           </Button>
           <Button onClick={() => scrollToSection('clubs')} variant="outline" size="lg" className="w-full md:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all">
