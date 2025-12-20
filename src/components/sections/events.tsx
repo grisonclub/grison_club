@@ -1,95 +1,49 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { ArrowRight, Calendar, ChevronRight } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 
 const events = [
-  {
-    title: 'Campagne de Reboisement National',
-    date: '15 Août 2024',
-    description: 'Rejoignez-nous pour planter 10 000 arbres à travers le pays et lutter contre la déforestation.',
-    imageId: 'event-reforestation',
-  },
-  {
-    title: 'Séminaire sur l\'Entrepreneuriat Jeune',
-    date: '25 Septembre 2024',
-    description: 'Un séminaire inspirant avec des leaders pour outiller les jeunes entrepreneurs guinéens.',
-    imageId: 'event-seminar',
-  },
-  {
-    title: 'Atelier de Codage pour Débutants',
-    date: '10-12 Octobre 2024',
-    description: 'Initiez-vous au monde de la programmation avec nos experts. Aucune expérience requise !',
-    imageId: 'event-workshop',
-  },
-  {
-    title: 'Festival Culturel de Conakry',
-    date: '18 Novembre 2024',
-    description: 'Célébration de la diversité culturelle guinéenne avec musique, danse et artisanat.',
-    imageId: 'culture-pillar',
-  },
+  { title: 'Campagne de Reboisement', category: 'Environnement', date: '12 Oct 2024', img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { title: 'Séminaire Leadership', category: 'Éducation', date: '05 Nov 2024', img: 'https://images.unsplash.com/photo-1544531679-6064e2a67c0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { title: 'Dons aux Orphelinats', category: 'Social', date: '20 Déc 2024', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
 ];
 
 export default function Events() {
   return (
-    <section id="events" className="w-full py-16 md:py-24 lg:py-32 bg-card">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Actualités & Événements</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Rejoignez nos actions</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Découvrez nos derniers événements, campagnes et actualités. Impliquez-vous et faites partie du changement.
-            </p>
+    <section id="actualites" className="py-20 bg-slate-50 dark:bg-slate-900/50">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Nos Actions Récentes</h2>
+            <p className="text-slate-600 dark:text-slate-400">Suivez nos campagnes sur le terrain.</p>
           </div>
+          <Button variant="link" className="hidden md:flex items-center gap-2 text-primary font-bold hover:underline">
+            Voir tout <ArrowRight size={20}/>
+          </Button>
         </div>
-        <div className="relative mt-12">
-          <Carousel
-            opts={{
-              align: 'start',
-              loop: true,
-            }}
-            className="w-full max-w-6xl mx-auto"
-          >
-            <CarouselContent>
-              {events.map((event, index) => {
-                const imageData = PlaceHolderImages.find(img => img.id === event.imageId);
-                return (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1">
-                      <Card className="overflow-hidden h-full flex flex-col">
-                        <div className="relative aspect-video">
-                          <Image
-                             src={imageData?.imageUrl || ''}
-                             alt={imageData?.description || event.title}
-                             data-ai-hint={imageData?.imageHint}
-                             fill
-                             className="object-cover"
-                          />
-                           <Badge className="absolute top-3 right-3" variant="secondary">{event.date}</Badge>
-                        </div>
-                        <CardContent className="p-6 flex-1 flex flex-col justify-between">
-                          <div>
-                            <h3 className="text-lg font-bold mb-2">{event.title}</h3>
-                            <p className="text-sm text-muted-foreground">{event.description}</p>
-                          </div>
-                          <Button variant="link" className="p-0 h-auto self-start mt-4">
-                            En savoir plus <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2" />
-            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2" />
-          </Carousel>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {events.map((news, idx) => (
+            <Card key={idx} className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+              <div className="relative h-48 overflow-hidden">
+                <Image src={news.img} alt={news.title} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Badge className="absolute top-4 left-4 bg-white/90 backdrop-blur text-slate-800">
+                    {news.category}
+                </Badge>
+              </div>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-sm mb-3">
+                  <Calendar size={14} /> {news.date}
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3 group-hover:text-primary transition-colors">{news.title}</h3>
+                <Button variant="link" className="p-0 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary">
+                  Lire l'article <ChevronRight size={16} />
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

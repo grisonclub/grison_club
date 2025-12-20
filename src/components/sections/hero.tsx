@@ -1,44 +1,53 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, HeartHandshake } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="hero" className="relative h-[90vh] min-h-[600px] max-h-[1080px] w-full flex items-center justify-center text-white">
-      <div className="absolute inset-0">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <Image
-          src={heroImage?.imageUrl || ''}
-          alt={heroImage?.description || 'Young people in action'}
-          data-ai-hint={heroImage?.imageHint}
+          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          alt="Jeunes en action"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60"></div>
       </div>
-      <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-extrabold tracking-tighter text-shadow sm:text-5xl md:text-6xl lg:text-7xl !leading-tight">
-            Formé, Inspirer, Agir pour Demain
-          </h1>
-          <p className="mt-6 text-lg text-gray-200 md:text-xl max-w-2xl mx-auto text-shadow-sm">
-            Rejoignez le Grison Club et devenez un acteur du changement pour une Guinée plus forte et plus juste.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" style={{ backgroundColor: 'hsl(var(--accent))', color: 'hsl(var(--accent-foreground))' }} className="hover:opacity-90 transition-opacity text-lg px-8 py-6">
-              <Link href="#membership">
-                Devenir Membre <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" className="text-white border-gray-300 hover:bg-white/10 hover:text-white transition-colors text-lg px-8 py-6 bg-black/20 backdrop-blur-sm">
-              <HeartHandshake className="mr-2" />
-              Faire un don
-            </Button>
-          </div>
+      <div className="container mx-auto px-4 relative z-10 text-center text-white mt-16">
+        <div className="inline-block px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-900/30 backdrop-blur-sm text-emerald-300 font-semibold mb-6">
+          Association à but non lucratif • Guinée
+        </div>
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+          Former, Inspirer, <br/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+            Agir pour Demain
+          </span>
+        </h1>
+        <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Rejoignez le mouvement Grison Club pour une transformation sociale durable à travers l'éducation, la culture et la protection de notre environnement.
+        </p>
+        <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+          <Button onClick={() => scrollToSection('adhesion')} size="lg" className="w-full md:w-auto bg-primary hover:bg-emerald-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/40">
+            Devenir Membre <ChevronRight size={20} className="ml-2" />
+          </Button>
+          <Button onClick={() => scrollToSection('clubs')} variant="outline" size="lg" className="w-full md:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all">
+            Découvrir nos Clubs
+          </Button>
         </div>
       </div>
     </section>

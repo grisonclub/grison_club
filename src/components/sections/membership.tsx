@@ -9,13 +9,15 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, DollarSign, UserPlus } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+
 
 const formSchema = z.object({
-  fullName: z.string().min(3, 'Le nom complet est requis.'),
+  firstName: z.string().min(2, 'Le prénom est requis.'),
+  lastName: z.string().min(2, 'Le nom est requis.'),
   email: z.string().email('Adresse e-mail invalide.'),
-  phone: z.string().min(9, 'Numéro de téléphone invalide.'),
-  clubInterest: z.string().optional(),
+  clubInterest: z.string(),
+  motivation: z.string().min(10, 'Veuillez entrer une courte motivation.'),
 });
 
 export default function Membership() {
@@ -23,172 +25,166 @@ export default function Membership() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: '',
+      firstName: '',
+      lastName: '',
       email: '',
-      phone: '',
-      clubInterest: undefined,
+      clubInterest: 'Grison Médecins',
+      motivation: '',
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: 'Pré-adhésion réussie !',
+      title: 'Demande envoyée !',
       description: 'Merci pour votre intérêt. Nous examinerons votre demande et vous contacterons bientôt.',
     });
     form.reset();
   }
 
   return (
-    <section id="membership" className="w-full py-16 md:py-24 lg:py-32 bg-background">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Adhésion</div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Rejoignez notre famille</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Devenir membre du Grison Club, c'est s'engager activement pour un avenir meilleur. Suivez ces étapes simples pour nous rejoindre.
-            </p>
-          </div>
-        </div>
+    <section id="adhesion" className="py-20 bg-emerald-900 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Processus d'adhésion</h3>
-              <ul className="space-y-6">
-                <li className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-xl">1</div>
-                  <div>
-                    <h4 className="font-semibold text-lg">Soumettre une demande</h4>
-                    <p className="text-muted-foreground">Remplissez le formulaire de pré-adhésion avec vos informations. C'est la première étape pour nous faire part de votre intérêt.</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-xl">2</div>
-                  <div>
-                    <h4 className="font-semibold text-lg">Validation par le comité</h4>
-                    <p className="text-muted-foreground">Notre comité d'adhésion examinera votre profil. Nous vous contacterons pour un bref entretien afin de mieux vous connaître.</p>
-                  </div>
-                </li>
-                 <li className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-xl">3</div>
-                  <div>
-                    <h4 className="font-semibold text-lg">Confirmation & Paiement</h4>
-                    <p className="text-muted-foreground">Une fois votre demande validée, vous serez invité à régler les frais d'adhésion pour finaliser votre inscription.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <div>
-                <h3 className="text-2xl font-bold mb-4">Frais & Cotisation</h3>
-                <div className="grid sm:grid-cols-2 gap-4">
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-sm font-medium">Frais d'adhésion</CardTitle>
-                            <UserPlus className="h-4 w-4 text-muted-foreground"/>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">50,000 GNF</div>
-                            <p className="text-xs text-muted-foreground">Paiement unique à l'inscription</p>
-                        </CardContent>
-                    </Card>
-                     <Card>
-                        <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-sm font-medium">Cotisation Annuelle</CardTitle>
-                            <DollarSign className="h-4 w-4 text-muted-foreground"/>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="text-2xl font-bold">200,000 GNF</div>
-                            <p className="text-xs text-muted-foreground">Renouvelable chaque année</p>
-                        </CardContent>
-                    </Card>
+        <div className="container mx-auto px-4 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div className="text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">Rejoignez la famille Grison</h2>
+                    <p className="text-emerald-100 text-lg mb-8 leading-relaxed">
+                        Devenir membre, c'est bien plus que payer une cotisation. C'est rejoindre un réseau d'élite engagé pour le développement de la Guinée.
+                    </p>
+                    
+                    <div className="space-y-8">
+                        <div className="flex gap-4">
+                            <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center font-bold border border-emerald-600 shrink-0">1</div>
+                            <div>
+                                <h4 className="font-bold text-xl mb-1">Demande d'adhésion</h4>
+                                <p className="text-emerald-200 text-sm">Remplissez le formulaire de pré-adhésion ci-contre.</p>
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center font-bold border border-emerald-600 shrink-0">2</div>
+                            <div>
+                                <h4 className="font-bold text-xl mb-1">Validation & Paiement</h4>
+                                <p className="text-emerald-200 text-sm">Après examen du dossier, réglez vos frais d'entrée.</p>
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center font-bold border border-emerald-600 shrink-0">3</div>
+                            <div>
+                                <h4 className="font-bold text-xl mb-1">Intégration</h4>
+                                <p className="text-emerald-200 text-sm">Recevez votre carte de membre et rejoignez un club.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-10 p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+                        <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-4">
+                            <span>Frais d'adhésion (Unique)</span>
+                            <span className="font-bold text-xl text-emerald-300">50 000 GNF</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                            <span>Cotisation Annuelle</span>
+                            <span className="font-bold text-xl text-white">200 000 GNF</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-          </div>
-          <div>
-            <Card className="p-6 sm:p-8">
-              <CardHeader className="p-0 mb-6">
-                <CardTitle className="text-2xl">Formulaire de Pré-adhésion</CardTitle>
-                <CardDescription>Commencez votre aventure avec nous ici.</CardDescription>
-              </CardHeader>
-              <CardContent className="p-0">
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="fullName"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Nom complet</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Ex: Moussa Camara" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Adresse e-mail</FormLabel>
-                          <FormControl>
-                            <Input placeholder="votre.email@exemple.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Téléphone</FormLabel>
-                          <FormControl>
-                            <Input placeholder="+224 XX XXX XXX" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="clubInterest"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Club d'intérêt (Optionnel)</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+
+                <div className="bg-white rounded-2xl p-8 shadow-2xl text-slate-800">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-6">Formulaire de Pré-adhésion</h3>
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                        <div className="grid grid-cols-2 gap-4">
+                            <FormField
+                            control={form.control}
+                            name="firstName"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel className="text-sm font-semibold text-slate-700">Prénom</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="Votre prénom" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200" />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                            />
+                            <FormField
+                            control={form.control}
+                            name="lastName"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel className="text-sm font-semibold text-slate-700">Nom</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="Votre nom" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200" />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                            />
+                        </div>
+                        <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel className="text-sm font-semibold text-slate-700">Email</FormLabel>
                             <FormControl>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Sélectionnez un club" />
-                              </SelectTrigger>
+                                <Input placeholder="exemple@email.com" {...field} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200" />
                             </FormControl>
-                            <SelectContent>
-                              <SelectItem value="medecins">Grison Médecins</SelectItem>
-                              <SelectItem value="avocats">Grison Avocats</SelectItem>
-                              <SelectItem value="youth">Grison Youth</SelectItem>
-                              <SelectItem value="ingenieurs">Grison Ingénieurs</SelectItem>
-                              <SelectItem value="autre">Autre</SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button type="submit" size="lg" className="w-full mt-6" style={{ backgroundColor: 'hsl(var(--accent))', color: 'hsl(var(--accent-foreground))' }}>
-                      Soumettre ma demande
-                    </Button>
-                  </form>
-                </Form>
-              </CardContent>
-            </Card>
-          </div>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField
+                        control={form.control}
+                        name="clubInterest"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel className="text-sm font-semibold text-slate-700">Club d'intérêt</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormControl>
+                                <SelectTrigger className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200">
+                                    <SelectValue placeholder="Sélectionnez un club" />
+                                </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                    <SelectItem value="medecins">Grison Médecins</SelectItem>
+                                    <SelectItem value="avocats">Grison Avocats</SelectItem>
+                                    <SelectItem value="youth">Grison Youth</SelectItem>
+                                    <SelectItem value="autre">Autre / Sympathisant</SelectItem>
+                                </SelectContent>
+                            </Select>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                         <FormField
+                            control={form.control}
+                            name="motivation"
+                            render={({ field }) => (
+                                <FormItem>
+                                <FormLabel className="text-sm font-semibold text-slate-700">Motivation (courte)</FormLabel>
+                                <FormControl>
+                                    <Textarea placeholder="Pourquoi souhaitez-vous nous rejoindre ?" {...field} rows={3} className="bg-slate-50 border-slate-200 focus:border-primary focus:ring-2 focus:ring-emerald-200" />
+                                </FormControl>
+                                <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <Button type="submit" size="lg" className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-lg transition-all shadow-lg hover:shadow-xl mt-2">
+                           Envoyer ma demande
+                        </Button>
+                        <p className="text-xs text-center text-slate-400 mt-4">
+                            Vos données sont protégées. En cliquant, vous acceptez nos conditions.
+                        </p>
+                      </form>
+                    </Form>
+                </div>
+
+            </div>
         </div>
-      </div>
     </section>
   );
 }
