@@ -17,7 +17,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-start overflow-hidden">
+    <section id="hero" className="relative h-screen flex justify-start overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
@@ -28,7 +28,7 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60"></div>
       </div>
-      <div className="container mx-auto px-4 md:px-6 relative z-10 text-left text-white">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 text-left text-white pt-48">
         <div className="max-w-3xl">
           <div className="inline-block px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-900/30 backdrop-blur-sm text-emerald-300 font-semibold mb-6">
             Association à but non lucratif • Guinée
