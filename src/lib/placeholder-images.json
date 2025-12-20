@@ -1,3 +1,70 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A diverse group of young professionals engaged in a workshop, smiling and collaborating.",
+      "imageUrl": "https://images.unsplash.com/photo-1619273014338-a23750398358?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx5b3V0aCUyMGFjdGlvbnxlbnwwfHx8fDE3NjYyNDk1MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "youth action"
+    },
+    {
+      "id": "education-pillar",
+      "description": "A student writing on a chalkboard in a modern classroom.",
+      "imageUrl": "https://images.unsplash.com/photo-1759678444893-9c1762e022fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxlZHVjYXRpb24lMjBsZWFybmluZ3xlbnwwfHx8fDE3NjYyNDk1MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "education learning"
+    },
+    {
+      "id": "culture-pillar",
+      "description": "Traditional Guinean dancers in colorful attire performing.",
+      "imageUrl": "https://images.unsplash.com/photo-1692713472437-7cd33ad729fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjdWx0dXJlJTIwZGFuY2V8ZW58MHx8fHwxNzY2MjQ5NTMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "culture dance"
+    },
+    {
+      "id": "environment-pillar",
+      "description": "Volunteers planting trees in a sunny field.",
+      "imageUrl": "https://images.unsplash.com/photo-1703012349431-95c3304d098f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbnZpcm9ubWVudCUyMHBsYW50aW5nfGVufDB8fHx8MTc2NjI0OTUzMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "environment planting"
+    },
+    {
+      "id": "club-medecins",
+      "description": "A doctor in a white coat with a stethoscope.",
+      "imageUrl": "https://images.unsplash.com/photo-1758691463605-f4a3a92d6d37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxkb2N0b3IlMjBtZWRpY2FsfGVufDB8fHx8MTc2NjIxODM0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "doctor medical"
+    },
+    {
+      "id": "club-avocats",
+      "description": "A lawyer holding a book of law in a library.",
+      "imageUrl": "https://images.unsplash.com/photo-1620662736427-b8a198f52a4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsYXd5ZXIlMjBsZWdhbHxlbnwwfHx8fDE3NjYyNDk1MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lawyer legal"
+    },
+    {
+      "id": "club-youth",
+      "description": "A group of teenagers laughing and talking together.",
+      "imageUrl": "https://images.unsplash.com/photo-1765939944780-a60b947ab443?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx5b3V0aCUyMGZyaWVuZHN8ZW58MHx8fHwxNzY2MjQ5NTMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "youth friends"
+    },
+    {
+      "id": "club-engineers",
+      "description": "An engineer wearing a hard hat and looking at blueprints.",
+      "imageUrl": "https://images.unsplash.com/photo-1763824391543-1e1d8424088e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxlbmdpbmVlciUyMGNvbnN0cnVjdGlvbnxlbnwwfHx8fDE3NjYyMzg1Nzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "engineer construction"
+    },
+    {
+      "id": "event-reforestation",
+      "description": "Close-up of hands holding a small sapling ready to be planted.",
+      "imageUrl": "https://images.unsplash.com/photo-1724149715970-666e2264759b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyZWZvcmVzdGF0aW9uJTIwc2FwbGluZ3xlbnwwfHx8fDE3NjYyNDk1MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "reforestation sapling"
+    },
+    {
+      "id": "event-seminar",
+      "description": "A speaker on stage at a conference, addressing the audience.",
+      "imageUrl": "https://images.unsplash.com/photo-1554936970-ce06538caf54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzZW1pbmFyJTIwY29uZmVyZW5jZXxlbnwwfHx8fDE3NjYyNDk1MzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "seminar conference"
+    },
+    {
+      "id": "event-workshop",
+      "description": "People gathered around a table for a hands-on workshop.",
+      "imageUrl": "https://images.unsplash.com/photo-1649252504727-45c70cffe143?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b3Jrc2hvcCUyMGNvbGxhYm9yYXRpb258ZW58MHx8fHwxNzY2MTgxOTU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "workshop collaboration"
+    }
+  ]
 }
