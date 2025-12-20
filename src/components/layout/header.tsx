@@ -83,7 +83,7 @@ export default function Header() {
               {link.label}
             </button>
           ))}
-          <Button className="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-primary/30">
+          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-emerald-500/30">
             <Heart size={18} className="mr-2" />
             Faire un Don
           </Button>
