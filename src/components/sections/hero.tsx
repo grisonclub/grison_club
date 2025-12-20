@@ -41,7 +41,7 @@ export default function Hero() {
             Rejoignez le mouvement Grison Club pour une transformation sociale durable à travers l'éducation, la culture et la protection de notre environnement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-start">
-            <Button onClick={() => scrollToSection('adhesion')} size="lg" className="w-full sm:w-auto bg-primary hover:bg-emerald-500 text-white px-8 py-3 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/40">
+            <Button onClick={() => scrollToSection('adhesion')} size="lg" className="w-full sm:w-auto bg-primary hover:bg-emerald-500 text-white hover:text-slate-900 px-8 py-3 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/40">
               Devenir Membre <ChevronRight size={20} className="ml-2" />
             </Button>
             <Button onClick={() => scrollToSection('clubs')} variant="outline" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-8 py-3 rounded-full font-bold text-lg transition-all">
