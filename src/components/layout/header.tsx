@@ -2,10 +2,16 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, Heart, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from '@/components/ui/sheet';
 
 const navLinks = [
   { href: '#a-propos', label: 'À propos' },
@@ -25,12 +31,12 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -38,27 +44,46 @@ export default function Header() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-white shadow-lg py-2 dark:bg-slate-900/80 dark:backdrop-blur-sm' : 'bg-transparent py-4'
+        isScrolled
+          ? 'bg-white shadow-lg py-2 dark:bg-slate-900/80 dark:backdrop-blur-sm'
+          : 'bg-transparent py-4'
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2" onClick={() => window.scrollTo(0,0)}>
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
-            G
-          </div>
-          <span className={cn('text-2xl font-bold tracking-tight', isScrolled ? 'text-slate-900 dark:text-white' : 'text-white')}>
+        <Link
+          href="/"
+          className="flex items-center gap-2"
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          <Image
+            src="/logo.png"
+            alt="Grison Club Logo"
+            width={40}
+            height={40}
+            className="h-10 w-auto"
+          />
+          <span
+            className={cn(
+              'text-2xl font-bold tracking-tight',
+              isScrolled
+                ? 'text-slate-900 dark:text-white'
+                : 'text-white'
+            )}
+          >
             Grison<span className="text-primary">Club</span>
           </span>
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
+          {navLinks.map(link => (
             <button
               key={link.href}
               onClick={() => scrollToSection(link.href.substring(1))}
               className={cn(
                 'font-medium transition-colors hover:text-primary',
-                isScrolled ? 'text-slate-600 dark:text-slate-300' : 'text-slate-200'
+                isScrolled
+                  ? 'text-slate-600 dark:text-slate-300'
+                  : 'text-slate-200'
               )}
             >
               {link.label}
@@ -73,13 +98,25 @@ export default function Header() {
         <div className="md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className={cn(isScrolled ? 'text-slate-900 dark:text-white' : 'text-white', 'hover:bg-white/10')}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className={cn(
+                  isScrolled
+                    ? 'text-slate-900 dark:text-white'
+                    : 'text-white',
+                  'hover:bg-white/10'
+                )}
+              >
                 {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="bg-white dark:bg-slate-900 py-4">
+            <SheetContent
+              side="top"
+              className="bg-white dark:bg-slate-900 py-4"
+            >
               <div className="flex flex-col items-center gap-4">
-                {navLinks.map((link) => (
+                {navLinks.map(link => (
                   <SheetClose asChild key={link.href}>
                     <button
                       onClick={() => scrollToSection(link.href.substring(1))}
