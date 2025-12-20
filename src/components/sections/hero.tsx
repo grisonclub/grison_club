@@ -3,7 +3,8 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, MapPin } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import HeaderImage from '../../../image/Image entête.png';
+
 
 export default function Hero() {
 
@@ -18,7 +19,7 @@ export default function Hero() {
     <section id="hero" className="relative h-screen flex justify-start overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          src={HeaderImage}
           alt="Jeunes en action"
           fill
           className="object-cover"
