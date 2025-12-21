@@ -18,7 +18,7 @@ const stats = [
   {
     icon: <Briefcase size={40} className="text-primary" />,
     value: '1000+',
-    label: 'Communautés Touchées',
+    label: 'Personnes Sensibilisées',
     description: 'Sensibilisation sur des thèmes variés et essentiels.',
   },
   {
