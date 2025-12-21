@@ -16,7 +16,7 @@ export default function Events() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Nos Actions Récentes</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Actualités & Événements</h2>
             <p className="text-slate-600 dark:text-slate-400">Suivez nos campagnes sur le terrain.</p>
           </div>
           <Button variant="link" className="hidden md:flex items-center gap-2 text-primary font-bold hover:underline">
