@@ -15,7 +15,7 @@ export default function Clubs() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Branches Affiliées</h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
-            Le Grison Club s'organise en branches spécialisées pour maximiser l'impact de chaque profession et passion.
+            Des clubs distincts, des missions variées, mais une seule vision commune. Chaque branche déploie ses propres actions, convergentes vers un but unique : servir et transformer la société.
           </p>
         </div>
 
