@@ -1,11 +1,11 @@
-import { Stethoscope, Users, CheckCircle, ArrowRight } from 'lucide-react';
-import { Gavel as Scale } from 'lucide-react'; // Using Gavel for Scale icon
+import { Languages, School, Shield, Code } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const clubs = [
-    { title: 'Grison Médecins', icon: <Stethoscope size={32}/>, color: 'bg-red-500', desc: 'Campagnes de santé et prévention.' },
-    { title: 'Grison Avocats', icon: <Scale size={32}/>, color: 'bg-indigo-500', desc: 'Aide juridique et droits de l\'homme.' },
-    { title: 'Grison Youth', icon: <Users size={32}/>, color: 'bg-yellow-500', desc: 'Leadership et entrepreneuriat jeune.' },
-    { title: 'Grison Tech', icon: <CheckCircle size={32}/>, color: 'bg-blue-500', desc: 'Innovation numérique pour le social.' },
+    { title: 'Amazone Grison Club', icon: <Shield size={32}/>, color: 'bg-pink-500', desc: 'Défense des droits des filles et des femmes.' },
+    { title: 'Grison English Club', icon: <Languages size={32}/>, color: 'bg-blue-500', desc: 'Apprentissage et pratique de l\'anglais.' },
+    { title: 'Grison Student Club', icon: <School size={32}/>, color: 'bg-yellow-500', desc: 'Clubs d\'engagement dans les écoles.' },
+    { title: 'Grison Tech', icon: <Code size={32}/>, color: 'bg-indigo-500', desc: 'Innovation numérique pour le social.' },
 ];
 
 export default function Clubs() {
