@@ -22,13 +22,6 @@ export default function About() {
                 height={1000}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute bottom-0 left-0 bg-white/90 dark:bg-slate-800/90 backdrop-blur p-6 m-6 rounded-xl shadow-lg max-w-xs">
-                <p className="font-bold text-slate-800 dark:text-white text-lg">Siège Social</p>
-                <div className="flex items-center gap-2 text-slate-600 dark:text-slate-300 mt-2">
-                  <MapPin size={18} className="text-primary" />
-                  <span>Coyah, République de Guinée</span>
-                </div>
-              </div>
             </div>
           </div>
           
@@ -54,7 +47,7 @@ export default function About() {
             {activeTab === 'vision' ? (
               <div className="animate-fade-in">
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-lg">
-                  Le Grison Club aspire à bâtir une société plus juste et éclairée. Nous croyons que la jeunesse guinéenne est le moteur d'une transformation sociale profonde. Notre approche est communautaire, apolitique et résolument tournée vers l'avenir.
+                  Le Grison Club aspire à bâtir une société plus juste et éclairée. Nous croyons que la jeunesse est le moteur d'une transformation sociale profonde. Notre approche est communautaire, apolitique et résolument tournée vers l'avenir.
                 </p>
                 <ul className="space-y-3">
                   {['Transformation Sociale', 'Engagement Communautaire', 'Excellence & Intégrité'].map((item) => (
