@@ -3,6 +3,7 @@ import Clubs from '@/components/sections/clubs';
 import Events from '@/components/sections/events';
 import Hero from '@/components/sections/hero';
 import Membership from '@/components/sections/membership';
+import SocialFeed from '@/components/sections/social-feed';
 import Stats from '@/components/sections/stats';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <Stats />
       <About />
       <Clubs />
+      <SocialFeed />
       <Events />
       <Membership />
     </>
