@@ -20,7 +20,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+    <footer className="bg-slate-950 text-slate-400 pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
