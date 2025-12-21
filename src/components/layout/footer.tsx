@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
             <p className="mb-6 max-w-sm">
               Association apolitique et à but non lucratif. Nous formons les
-              leaders de demain pour une Guinée prospère et solidaire.
+              leaders de demain pour un monde prospère et solidaire.
             </p>
             <div className="flex gap-4">
               <a
@@ -101,11 +101,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-primary" />
-                <span>contact@grisonclub.gn</span>
+                <span>grisonclub@gmail.com</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary" />
-                <span>+224 600 00 00 00</span>
+                <span>+224 611 10 52 20</span>
               </li>
             </ul>
           </div>
