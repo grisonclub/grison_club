@@ -5,13 +5,10 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import { Card, CardContent } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
+import { Progress } from '@/components/ui/progress';
 
 const timelineData = [
   {
@@ -44,8 +41,10 @@ const timelineData = [
 export default function HistoryTimeline() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
+  const [progress, setProgress] = React.useState(0);
+
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   React.useEffect(() => {
@@ -53,12 +52,17 @@ export default function HistoryTimeline() {
       return;
     }
 
-    const onSelect = () => {
+    const onSelect = (api: CarouselApi) => {
       setCurrent(api.selectedScrollSnap());
+      const newProgress = (api.selectedScrollSnap() / (timelineData.length - 1)) * 100;
+      setProgress(newProgress);
     };
 
     api.on('select', onSelect);
     api.on('reInit', onSelect);
+
+    // Initial set
+    onSelect(api);
 
     return () => {
       api.off('select', onSelect);
@@ -88,43 +92,39 @@ export default function HistoryTimeline() {
           }}
           className="w-full"
         >
-            <div className="relative px-10 md:px-16">
-                 <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700" />
-                 <CarouselContent className="-ml-4">
-                    {timelineData.map((item, index) => (
-                        <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 group">
-                             <div className="flex flex-col items-center text-center relative pt-8">
-                                <div className="absolute top-1/2 w-full flex justify-center">
-                                    <div className={cn("w-3 h-3 rounded-sm bg-slate-300 dark:bg-slate-700 transition-all transform", 
-                                    "group-data-[in-view=true]:bg-primary group-data-[in-view=true]:scale-150"
-                                    )}></div>
-                                </div>
-                                <div className={cn("absolute top-0 transition-opacity",
-                                    "group-data-[in-view=true]:opacity-100",
-                                    "group-data-[in-view=false]:opacity-50"
-                                )}>
-                                    <p className="font-bold text-sm text-slate-700 dark:text-slate-300">{item.year}</p>
-                                    <p className="text-xs text-slate-500 dark:text-slate-400">{item.title}</p>
-                                </div>
-                                <div className="pt-8 w-full">
-                                    <Card className={cn(
-                                        "bg-transparent border-slate-300 dark:border-slate-700 rounded-2xl transition-all",
-                                        "group-data-[in-view=true]:bg-white dark:group-data-[in-view=true]:bg-slate-800 group-data-[in-view=true]:border-primary/30 group-data-[in-view=true]:shadow-lg"
-                                        )}>
-                                        <CardContent className="p-6">
-                                            <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
-                                            <p className="text-sm text-slate-600 dark:text-slate-400">{item.description}</p>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                 </CarouselContent>
+          <div className="relative mb-8 px-10 md:px-16">
+            <div className="flex justify-between">
+              {timelineData.map((item, index) => (
+                <div key={index} className="flex flex-col items-center text-center w-full relative">
+                  <div className={`font-bold text-sm ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>{item.year}</div>
+                  <div className={`text-xs ${index === current ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400'}`}>{item.title}</div>
+                </div>
+              ))}
             </div>
-
-          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2" />
-          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2" />
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 mt-2.5">
+                <Progress value={progress} className="h-0.5 bg-primary" />
+            </div>
+             <div className="flex justify-between absolute top-1/2 w-full mt-2.5">
+                {timelineData.map((_, index) => (
+                    <div key={index} className="flex justify-center w-full">
+                         <div className={`w-3 h-3 rounded-full ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'} transition-colors`}></div>
+                    </div>
+                ))}
+            </div>
+          </div>
+          
+          <CarouselContent className="-ml-4">
+            {timelineData.map((item, index) => (
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <div className="p-1 h-full">
+                  <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
+                    <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">{item.description}</p>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
         </Carousel>
       </div>
     </section>
