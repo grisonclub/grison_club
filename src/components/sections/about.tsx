@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { GraduationCap, Leaf, Palette, CheckCircle, MapPin } from 'lucide-react';
+import { GraduationCap, Leaf, Palette, CheckCircle, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function About() {
@@ -49,13 +50,18 @@ export default function About() {
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-6 text-lg">
                   Le Grison Club aspire à bâtir une société plus juste et éclairée. Nous croyons que la jeunesse est le moteur d'une transformation sociale profonde. Notre approche est communautaire, apolitique et résolument tournée vers l'avenir.
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-3 mb-8">
                   {['Transformation Sociale', 'Engagement Communautaire', 'Excellence & Intégrité'].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-slate-700 dark:text-slate-200 font-medium">
                       <CheckCircle className="text-primary" size={20} /> {item}
                     </li>
                   ))}
                 </ul>
+                <Button asChild variant="outline">
+                  <Link href="/a-propos">
+                    En savoir plus <ArrowRight className="ml-2" />
+                  </Link>
+                </Button>
               </div>
             ) : (
               <div className="grid grid-cols-1 gap-4 animate-fade-in">
