@@ -42,8 +42,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="mb-6 max-w-sm">
-              Association apolitique et à but non lucratif. Nous formons les
-              leaders de demain pour un monde prospère et solidaire.
+              Association apolitique et à but non lucratif. Nous formons les leaders de demain pour un monde prospère et solidaire.
             </p>
             <div className="flex gap-4">
               <a
@@ -69,7 +68,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="#a-propos"
+                  href="/a-propos"
                   className="hover:text-primary transition-colors"
                 >
                   Qui sommes-nous
@@ -77,7 +76,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#clubs"
+                  href="/#clubs"
                   className="hover:text-primary transition-colors"
                 >
                   Nos Clubs
@@ -85,7 +84,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#actualites"
+                  href="/#actualites"
                   className="hover:text-primary transition-colors"
                 >
                   Événements
@@ -93,7 +92,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#adhesion"
+                  href="/#adhesion"
                   className="hover:text-primary transition-colors"
                 >
                   Adhésion

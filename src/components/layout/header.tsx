@@ -14,10 +14,10 @@ import {
 import { Logo } from '../logo';
 
 const navLinks = [
-  { href: '#a-propos', label: 'À propos' },
-  { href: '#clubs', label: 'Clubs' },
-  { href: '#actualites', label: 'Actualités' },
-  { href: '#adhesion', label: 'Adhésion' },
+  { href: '/a-propos', label: 'À propos' },
+  { href: '/#clubs', label: 'Clubs' },
+  { href: '/#actualites', label: 'Actualités' },
+  { href: '/#adhesion', label: 'Adhésion' },
 ];
 
 export default function Header() {
@@ -32,11 +32,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
+  const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('/#')) {
+      const id = href.substring(2);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -70,9 +73,10 @@ export default function Header() {
 
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map(link => (
-            <button
+             <Link
               key={link.href}
-              onClick={() => scrollToSection(link.href.substring(1))}
+              href={link.href}
+              onClick={() => handleNavClick(link.href)}
               className={cn(
                 'font-medium transition-colors hover:text-primary',
                 isScrolled
@@ -81,7 +85,7 @@ export default function Header() {
               )}
             >
               {link.label}
-            </button>
+            </Link>
           ))}
           <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-emerald-500/30">
             <Heart size={18} className="mr-2" />
@@ -112,12 +116,13 @@ export default function Header() {
               <div className="flex flex-col items-center gap-4">
                 {navLinks.map(link => (
                   <SheetClose asChild key={link.href}>
-                    <button
-                      onClick={() => scrollToSection(link.href.substring(1))}
+                    <Link
+                      href={link.href}
+                      onClick={() => handleNavClick(link.href)}
                       className="text-slate-600 dark:text-slate-300 font-medium text-lg py-2"
                     >
                       {link.label}
-                    </button>
+                    </Link>
                   </SheetClose>
                 ))}
                 <Button className="bg-primary text-white px-8 py-3 rounded-full font-bold mt-2">
