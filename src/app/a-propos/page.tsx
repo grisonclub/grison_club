@@ -43,11 +43,11 @@ export default function AboutPage() {
                           Le Grison Club est né d'un constat simple : la jeunesse est la clé de voûte de toute transformation sociale durable. Fondée en 2021, notre association apolitique et à but non lucratif s'est donné pour mission de former, d'inspirer et de mobiliser cette jeunesse pour qu'elle devienne le moteur d'un changement positif.
                       </p>
                       <p>
-                          Nous croyons en un monde où chaque jeune a les outils pour réaliser son potentiel, où la culture est un vecteur de dialogue et où l'environnement est préservé pour les générations futures. C'est cette vision qui guide chacune de nos actions, de la plus petite initiative locale au projet le plus ambitieux.
+                          Nous croyons en un monde où chaque jeune a les outils pour réaliser son potentiel, où la culture est un vecteur de dialogue et où l'environnement est préservé pour les générations futures. C'est cette vision qui guide chacune de nos actions.
                       </p>
-                      <blockquote className="border-l-4 border-primary pl-4 italic">
-                          "Nous ne sommes pas simplement des rêveurs, nous sommes des bâtisseurs. Chaque action compte, chaque jeune formé est une promesse d'avenir."
-                      </blockquote>
+                      <Button size="lg" asChild className="bg-primary hover:bg-emerald-500 text-white px-8 py-3 rounded-full font-bold text-lg mt-6">
+                        <Link href="/#adhesion">Devenir Membre</Link>
+                      </Button>
                   </div>
                   <div>
                     {missionImage && (
