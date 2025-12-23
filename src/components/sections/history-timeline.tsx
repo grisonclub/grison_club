@@ -57,7 +57,6 @@ export default function HistoryTimeline() {
     const onSelect = (api: CarouselApi) => {
       const selectedSnap = api.selectedScrollSnap();
       setCurrent(selectedSnap);
-      // Ensure progress calculation handles the loop correctly if enabled
       const totalSnaps = api.scrollSnapList().length;
       if (totalSnaps > 1) {
         const newProgress = (selectedSnap / (totalSnaps - 1)) * 100;
@@ -110,10 +109,10 @@ export default function HistoryTimeline() {
                   </span>
                 </div>
               ))}
-              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 transform -translate-y-1/2">
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 transform -translate-y-1/2 mt-3">
                 <Progress value={progress} className="h-0.5 bg-primary" />
               </div>
-              <div className="absolute top-1/2 left-0 w-full flex justify-between transform -translate-y-1/2">
+              <div className="absolute top-1/2 left-0 w-full flex justify-between transform -translate-y-1/2 mt-3">
                 {timelineData.map((_, index) => (
                   <div key={index} className="flex-1 flex justify-center">
                     <div className={`w-3 h-3 rounded-full transition-colors ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'}`}></div>
