@@ -57,7 +57,7 @@ export default function About() {
                     </li>
                   ))}
                 </ul>
-                <Button asChild variant="outline">
+                <Button asChild>
                   <Link href="/a-propos">
                     En savoir plus <ArrowRight className="ml-2" />
                   </Link>
