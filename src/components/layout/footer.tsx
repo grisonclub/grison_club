@@ -3,14 +3,25 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
-  Twitter,
   Facebook,
   Instagram,
-  MapPin,
   Mail,
+  MapPin,
   Phone,
 } from 'lucide-react';
 import { Logo } from '../logo';
+
+const XLogo = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 50 50"
+    width="18px"
+    height="18px"
+    fill="currentColor"
+  >
+    <path d="M 5.9199219 6 L 20.580078 25.044922 L 6.2304688 44 L 9.4101562 44 L 21.986328 27.525391 L 31.986328 44 L 44 44 L 28.681641 24.232422 L 42.171875 6 L 38.992188 6 L 27.232422 21.693359 L 17.933594 6 L 5.9199219 6 z M 11.181641 8 L 16.599609 8 L 40.240234 42 L 34.822266 42 L 11.181641 8 z" />
+  </svg>
+);
 
 export default function Footer() {
   const [year, setYear] = useState(new Date().getFullYear());
@@ -36,22 +47,20 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=100079015705619"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
               >
                 <Facebook size={18} />
               </a>
               <a
-                href="#"
+                href="https://x.com/GrisonClub"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
               >
-                <Twitter size={18} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
-              >
-                <Instagram size={18} />
+                <XLogo />
               </a>
             </div>
           </div>
