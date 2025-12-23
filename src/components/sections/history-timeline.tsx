@@ -55,22 +55,26 @@ export default function HistoryTimeline() {
     }
 
     const onSelect = (api: CarouselApi) => {
-      setCurrent(api.selectedScrollSnap());
-      const newProgress = (api.selectedScrollSnap() / (timelineData.length - 1)) * 100;
-      setProgress(newProgress);
+      const selectedSnap = api.selectedScrollSnap();
+      setCurrent(selectedSnap);
+      // Ensure progress calculation handles the loop correctly if enabled
+      const totalSnaps = api.scrollSnapList().length;
+      if (totalSnaps > 1) {
+        const newProgress = (selectedSnap / (totalSnaps - 1)) * 100;
+        setProgress(newProgress);
+      }
     };
-
+    
     api.on('select', onSelect);
     api.on('reInit', onSelect);
 
-    // Initial set
     onSelect(api);
 
     return () => {
       api.off('select', onSelect);
       api.off('reInit', onSelect);
     };
-  }, [api, timelineData.length]);
+  }, [api]);
 
   return (
     <section className="py-20 bg-slate-50 dark:bg-slate-900">
@@ -95,28 +99,33 @@ export default function HistoryTimeline() {
           className="w-full"
         >
           <div className="relative mb-8 px-10 md:px-16">
-            <div className="flex justify-between">
+            <div className="relative flex justify-between items-center h-8">
               {timelineData.map((item, index) => (
-                <div key={index} className="flex flex-col items-center text-center w-full relative">
-                  <div className={`font-bold text-sm ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>{item.year}</div>
+                <div 
+                  key={index}
+                  className="flex-1 flex flex-col items-center text-center relative z-10"
+                >
+                  <span className={`font-bold text-sm transition-colors ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
+                    {item.year}
+                  </span>
                 </div>
               ))}
-            </div>
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 mt-2.5">
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 transform -translate-y-1/2">
                 <Progress value={progress} className="h-0.5 bg-primary" />
-            </div>
-             <div className="flex justify-between absolute top-1/2 w-full mt-2.5 transform -translate-y-1/2">
+              </div>
+              <div className="absolute top-1/2 left-0 w-full flex justify-between transform -translate-y-1/2">
                 {timelineData.map((_, index) => (
-                    <div key={index} className="flex justify-center w-full">
-                         <div className={`w-3 h-3 ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'} transition-colors`}></div>
-                    </div>
+                  <div key={index} className="flex-1 flex justify-center">
+                    <div className={`w-3 h-3 rounded-full transition-colors ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'}`}></div>
+                  </div>
                 ))}
+              </div>
             </div>
           </div>
           
           <CarouselContent className="-ml-4">
             {timelineData.map((item, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2">
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
                     <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
