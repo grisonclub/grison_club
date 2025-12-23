@@ -98,27 +98,18 @@ export default function HistoryTimeline() {
           className="w-full"
         >
           <div className="relative mb-8 px-10 md:px-16">
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 transform -translate-y-1/2 mt-3">
+              <Progress value={progress} className="h-0.5 bg-primary" />
+            </div>
             <div className="relative flex justify-between items-center h-8">
               {timelineData.map((item, index) => (
-                <div 
-                  key={index}
-                  className="flex-1 flex flex-col items-center text-center relative z-10"
-                >
-                  <span className={`font-bold text-sm transition-colors ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
+                <div key={index} className="flex-1 flex justify-center items-center relative z-10 flex-col">
+                   <span className={`font-bold text-sm transition-colors mb-6 ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
                     {item.year}
                   </span>
+                  <div className={`w-3 h-3 rounded-full transition-colors ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'}`}></div>
                 </div>
               ))}
-              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 transform -translate-y-1/2 mt-3">
-                <Progress value={progress} className="h-0.5 bg-primary" />
-              </div>
-              <div className="absolute top-1/2 left-0 w-full flex justify-between transform -translate-y-1/2 mt-3">
-                {timelineData.map((_, index) => (
-                  <div key={index} className="flex-1 flex justify-center">
-                    <div className={`w-3 h-3 rounded-full transition-colors ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'}`}></div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
           
