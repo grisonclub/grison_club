@@ -5,6 +5,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
   type CarouselApi,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
@@ -44,7 +46,7 @@ export default function HistoryTimeline() {
   const [progress, setProgress] = React.useState(0);
 
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
 
   React.useEffect(() => {
@@ -68,7 +70,7 @@ export default function HistoryTimeline() {
       api.off('select', onSelect);
       api.off('reInit', onSelect);
     };
-  }, [api]);
+  }, [api, timelineData.length]);
 
   return (
     <section className="py-20 bg-slate-50 dark:bg-slate-900">
@@ -124,6 +126,8 @@ export default function HistoryTimeline() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </div>
     </section>
