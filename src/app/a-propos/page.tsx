@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Award, Target, Users, BookOpen } from 'lucide-react';
+import { Award, Target, Users, BookOpen, ArrowRight } from 'lucide-react';
 import placeholderImages from '@/lib/placeholder-images.json';
 import Link from 'next/link';
+import HistoryTimeline from '@/components/sections/history-timeline';
 
 const founderImage = placeholderImages.placeholderImages.find(p => p.imageHint === 'youth action');
 const aboutHeroImage = placeholderImages.placeholderImages.find(p => p.id === 'event-seminar');
@@ -63,6 +64,8 @@ export default function AboutPage() {
               </div>
           </div>
       </section>
+
+      <HistoryTimeline />
 
       <section className="py-20 bg-slate-50 dark:bg-slate-900">
           <div className="container mx-auto px-4">
