@@ -97,7 +97,6 @@ export default function HistoryTimeline() {
               {timelineData.map((item, index) => (
                 <div key={index} className="flex flex-col items-center text-center w-full relative">
                   <div className={`font-bold text-sm ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>{item.year}</div>
-                  <div className={`text-xs ${index === current ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400'}`}>{item.title}</div>
                 </div>
               ))}
             </div>
@@ -115,7 +114,7 @@ export default function HistoryTimeline() {
           
           <CarouselContent className="-ml-4">
             {timelineData.map((item, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="pl-4">
                 <div className="p-1 h-full">
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
                     <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
