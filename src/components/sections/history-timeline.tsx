@@ -105,10 +105,10 @@ export default function HistoryTimeline() {
             <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 mt-2.5">
                 <Progress value={progress} className="h-0.5 bg-primary" />
             </div>
-             <div className="flex justify-between absolute top-1/2 w-full mt-2.5">
+             <div className="flex justify-between absolute top-1/2 w-full mt-2.5 transform -translate-y-1/2">
                 {timelineData.map((_, index) => (
                     <div key={index} className="flex justify-center w-full">
-                         <div className={`w-3 h-3 rounded-full ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'} transition-colors`}></div>
+                         <div className={`w-3 h-3 ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'} transition-colors`}></div>
                     </div>
                 ))}
             </div>
@@ -116,7 +116,7 @@ export default function HistoryTimeline() {
           
           <CarouselContent className="-ml-4">
             {timelineData.map((item, index) => (
-              <CarouselItem key={index} className="pl-4">
+              <CarouselItem key={index} className="pl-4 md:basis-1/2">
                 <div className="p-1 h-full">
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
                     <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
