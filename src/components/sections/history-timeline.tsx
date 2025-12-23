@@ -7,6 +7,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
@@ -43,21 +44,27 @@ const timelineData = [
 export default function HistoryTimeline() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
 
   React.useEffect(() => {
     if (!api) {
       return;
     }
 
-    setCurrent(api.selectedScrollSnap() + 1);
+    setCurrent(api.selectedScrollSnap());
 
     const onSelect = () => {
       setCurrent(api.selectedScrollSnap());
     };
 
     api.on('select', onSelect);
+    api.on('reInit', onSelect);
+    
     return () => {
       api.off('select', onSelect);
+      api.off('reInit', onSelect);
     };
   }, [api]);
 
@@ -65,13 +72,13 @@ export default function HistoryTimeline() {
     api?.scrollTo(index);
   };
   
-  const scrollPrev = () => {
+  const scrollPrev = React.useCallback(() => {
     api?.scrollPrev();
-  };
+  },[api]);
   
-  const scrollNext = () => {
+  const scrollNext = React.useCallback(() => {
     api?.scrollNext();
-  };
+  },[api]);
 
 
   return (
@@ -84,8 +91,8 @@ export default function HistoryTimeline() {
         
         <div className="relative">
           <div className="flex items-center justify-between mb-8 px-10">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                <Button variant="ghost" size="icon" onClick={scrollPrev} disabled={!api?.canScrollPrev()} className="rounded-full h-12 w-12">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+                <Button variant="ghost" size="icon" onClick={scrollPrev} disabled={!api?.canScrollPrev()} className="rounded-full h-12 w-12 bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700">
                   <ArrowLeft />
                 </Button>
               </div>
@@ -99,10 +106,9 @@ export default function HistoryTimeline() {
                                   onClick={() => handleTimelineClick(index)}
                                   className="relative flex flex-col items-center focus:outline-none"
                               >
-                                  <div className={cn("w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700 transition-colors", { 'bg-primary dark:bg-primary': current === index })}></div>
+                                  <div className={cn("w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700 transition-all", { 'bg-primary dark:bg-primary scale-125': current === index })}></div>
                                   <div className="mt-4 text-center">
                                       <p className={cn("font-bold transition-colors", { 'text-primary': current === index })}>{item.year}</p>
-                                      <p className="text-sm text-slate-500 dark:text-slate-400">{item.title}</p>
                                   </div>
                               </button>
                           </div>
@@ -110,15 +116,21 @@ export default function HistoryTimeline() {
                   </div>
               </div>
               
-              <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                <Button variant="ghost" size="icon" onClick={scrollNext} disabled={!api?.canScrollNext()} className="rounded-full h-12 w-12">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+                <Button variant="ghost" size="icon" onClick={scrollNext} disabled={!api?.canScrollNext()} className="rounded-full h-12 w-12 bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700">
                   <ArrowRight />
                 </Button>
               </div>
           </div>
 
 
-          <Carousel setApi={setApi} className="w-full">
+          <Carousel 
+            setApi={setApi} 
+            className="w-full"
+            plugins={[plugin.current]}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
             <CarouselContent>
               {timelineData.map((item, index) => (
                 <CarouselItem key={index}>
