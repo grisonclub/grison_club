@@ -45,7 +45,7 @@ export default function HistoryTimeline() {
   const [count, setCount] = React.useState(0);
   
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true, stopOnMouseEnter: true })
+    Autoplay({ delay: 1000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
 
   React.useEffect(() => {
@@ -94,10 +94,10 @@ export default function HistoryTimeline() {
           className="w-full"
         >
           <div className="relative mb-8 px-4">
-              <div className="absolute top-[66px] left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700"></div>
+              <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700"></div>
               <div 
-                className="absolute top-[66px] left-0 h-0.5 bg-primary transition-all duration-300"
-                style={{ width: `calc(${progressPercentage}% - ${count > 0 ? (100 / count / 2) : 0}%)` }}
+                className="absolute top-1/2 -translate-y-1/2 left-0 h-0.5 bg-primary transition-all duration-300"
+                style={{ width: `${progressPercentage}%` }}
               ></div>
           </div>
           
@@ -106,16 +106,18 @@ export default function HistoryTimeline() {
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <div className="flex flex-col items-center text-center relative h-full pt-8">
                   {/* Date */}
-                  <span className={`font-bold text-lg mb-6 transition-colors ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
-                    {item.year}
-                  </span>
+                  <div className="mb-8">
+                    <span className={`font-bold text-lg transition-colors ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
+                      {item.year}
+                    </span>
+                  </div>
                   
                   {/* Timeline marker */}
-                  <div className="absolute top-[58px] w-4 h-4 bg-background border-2 rounded-sm rotate-45 z-10 transition-colors"
+                  <div className="absolute top-[-2px] w-4 h-4 bg-background border-2 rounded-sm rotate-45 z-10 transition-colors"
                     style={{ borderColor: index <= current ? 'hsl(var(--primary))' : 'hsl(var(--border))' }}
                   ></div>
                   
-                  <div className="p-1 h-full w-full mt-8">
+                  <div className="p-1 h-full w-full">
                     <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
                       <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
                       <p className="text-sm text-slate-600 dark:text-slate-400">{item.description}</p>
