@@ -51,14 +51,14 @@ export default function AboutPage() {
                         <Link href="/#adhesion">Devenir Membre</Link>
                       </Button>
                   </div>
-                  <div>
+                  <div className="h-full">
                     {missionImage && (
                         <Image
                             src={missionImage.imageUrl}
                             alt={missionImage.description}
                             width={600}
                             height={400}
-                            className="rounded-2xl shadow-2xl w-full"
+                            className="rounded-2xl shadow-2xl w-full h-full object-cover"
                         />
                     )}
                   </div>
