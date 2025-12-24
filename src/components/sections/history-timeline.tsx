@@ -10,6 +10,7 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import { cn } from '@/lib/utils';
 
 const timelineData = [
   {
@@ -69,8 +70,8 @@ export default function HistoryTimeline() {
     };
   }, [api]);
 
-  const progressPercentage = count > 0 ? ((current + 1) / count) * 100 : 0;
-
+  const progressPercentage = count > 0 ? (current / (count - 1)) * 100 : 0;
+  
   return (
     <section className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
@@ -91,29 +92,33 @@ export default function HistoryTimeline() {
           }}
           className="w-full"
         >
-          <div className="relative mb-8 px-4">
+          <div className="relative mb-8">
               <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700"></div>
               <div 
                 className="absolute top-1/2 -translate-y-1/2 left-0 h-0.5 bg-primary transition-all duration-300"
-                style={{ width: `${progressPercentage}%` }}
+                style={{ width: `calc(${progressPercentage}% + 1rem)` }}
               ></div>
           </div>
           
           <CarouselContent className="-ml-4">
             {timelineData.map((item, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <div className="flex flex-col items-center text-center relative h-full pt-8">
-                  {/* Date */}
+                <div className="flex flex-col items-center text-center h-full">
+                  
                   <div className="mb-8">
-                    <span className={`font-bold text-lg transition-colors ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
+                    <span className={cn('font-bold text-lg transition-colors', index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400')}>
                       {item.year}
                     </span>
                   </div>
                   
-                  {/* Timeline marker */}
-                  <div className="absolute top-[-2px] w-4 h-4 bg-background border-2 rounded-sm rotate-45 z-10 transition-colors"
-                    style={{ borderColor: index <= current ? 'hsl(var(--primary))' : 'hsl(var(--border))' }}
-                  ></div>
+                  <div className="relative w-full flex justify-center mb-8">
+                    <div 
+                      className={cn(
+                        'absolute top-[-26px] w-4 h-4 bg-background border-2 rounded-sm rotate-45 z-10 transition-colors',
+                        index <= current ? 'border-primary' : 'border-slate-300 dark:border-slate-700'
+                      )}
+                    ></div>
+                  </div>
                   
                   <div className="p-1 h-full w-full">
                     <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
