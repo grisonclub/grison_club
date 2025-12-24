@@ -65,9 +65,9 @@ export default function AboutPage() {
           </div>
       </section>
       
-      <BureauExecutif />
-
       <HistoryTimeline />
+
+      <BureauExecutif />
 
       <section className="py-20 bg-slate-50 dark:bg-slate-900">
         <div className="container mx-auto px-4">
