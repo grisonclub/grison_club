@@ -10,7 +10,6 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-import { Progress } from '@/components/ui/progress';
 
 const timelineData = [
   {
@@ -43,8 +42,7 @@ const timelineData = [
 export default function HistoryTimeline() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
-  const [progress, setProgress] = React.useState(0);
-
+  
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
@@ -55,13 +53,7 @@ export default function HistoryTimeline() {
     }
 
     const onSelect = (api: CarouselApi) => {
-      const selectedSnap = api.selectedScrollSnap();
-      setCurrent(selectedSnap);
-      const totalSnaps = api.scrollSnapList().length;
-      if (totalSnaps > 1) {
-        const newProgress = (selectedSnap / (totalSnaps - 1)) * 100;
-        setProgress(newProgress);
-      }
+      setCurrent(api.selectedScrollSnap());
     };
     
     api.on('select', onSelect);
@@ -78,7 +70,7 @@ export default function HistoryTimeline() {
   return (
     <section className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Notre Parcours</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Les grandes étapes de notre histoire</h3>
            <p className="text-slate-600 dark:text-slate-400 mt-2 max-w-2xl mx-auto">
@@ -97,29 +89,29 @@ export default function HistoryTimeline() {
           }}
           className="w-full"
         >
-          <div className="relative mb-8 px-10 md:px-16">
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700 transform -translate-y-1/2 mt-3">
-              <Progress value={progress} className="h-0.5 bg-primary" />
-            </div>
-            <div className="relative flex justify-between items-center h-8">
-              {timelineData.map((item, index) => (
-                <div key={index} className="flex-1 flex justify-center items-center relative z-10 flex-col">
-                   <span className={`font-bold text-sm transition-colors mb-6 ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
-                    {item.year}
-                  </span>
-                  <div className={`w-3 h-3 rounded-full transition-colors ${index <= current ? 'bg-primary' : 'bg-slate-300 dark:bg-slate-600'}`}></div>
-                </div>
-              ))}
-            </div>
+          <div className="relative mb-8 px-4">
+              <div className="absolute top-[58px] left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700"></div>
           </div>
           
           <CarouselContent className="-ml-4">
             {timelineData.map((item, index) => (
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                <div className="p-1 h-full">
-                  <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
-                    <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">{item.description}</p>
+                <div className="flex flex-col items-center text-center relative h-full pt-8">
+                  {/* Date */}
+                  <span className={`font-bold text-lg mb-4 transition-colors ${index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400'}`}>
+                    {item.year}
+                  </span>
+                  
+                  {/* Timeline marker */}
+                  <div className="absolute top-[50px] w-4 h-4 bg-background border-2 rounded-sm rotate-45 z-10 transition-colors"
+                    style={{ borderColor: index <= current ? 'hsl(var(--primary))' : 'hsl(var(--border))' }}
+                  ></div>
+                  
+                  <div className="p-1 h-full w-full mt-8">
+                    <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
+                      <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">{item.description}</p>
+                    </div>
                   </div>
                 </div>
               </CarouselItem>
