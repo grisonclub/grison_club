@@ -96,7 +96,7 @@ export default function HistoryTimeline() {
               <div className="absolute top-1/2 -translate-y-1/2 left-0 w-full h-0.5 bg-slate-300 dark:bg-slate-700"></div>
               <div 
                 className="absolute top-1/2 -translate-y-1/2 left-0 h-0.5 bg-primary transition-all duration-300"
-                style={{ width: `calc(${progressPercentage}% + 1rem)` }}
+                style={{ width: `${progressPercentage}%` }}
               ></div>
           </div>
           
@@ -105,21 +105,22 @@ export default function HistoryTimeline() {
               <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                 <div className="flex flex-col items-center text-center h-full">
                   
-                  <div className="mb-8">
-                    <span className={cn('font-bold text-lg transition-colors', index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400')}>
-                      {item.year}
-                    </span>
+                  {/* Year */}
+                  <div className="mb-4 pt-4">
+                      <span className={cn('font-bold text-lg transition-colors', index === current ? 'text-primary' : 'text-slate-500 dark:text-slate-400')}>
+                          {item.year}
+                      </span>
+                  </div>
+
+                  {/* Timeline Bar and Dot */}
+                  <div className="relative w-full flex justify-center items-center h-8">
+                      <div className={cn(
+                          'absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-background border-2 rounded-sm rotate-45 z-10 transition-colors',
+                          index <= current ? 'border-primary' : 'border-slate-300 dark:border-slate-700'
+                      )}></div>
                   </div>
                   
-                  <div className="relative w-full flex justify-center mb-8">
-                    <div 
-                      className={cn(
-                        'absolute top-[-26px] w-4 h-4 bg-background border-2 rounded-sm rotate-45 z-10 transition-colors',
-                        index <= current ? 'border-primary' : 'border-slate-300 dark:border-slate-700'
-                      )}
-                    ></div>
-                  </div>
-                  
+                  {/* Card */}
                   <div className="p-1 h-full w-full">
                     <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-lg h-full border border-transparent hover:border-primary/50 transition-colors">
                       <h4 className="font-bold text-lg mb-2 text-slate-800 dark:text-white">{item.title}</h4>
