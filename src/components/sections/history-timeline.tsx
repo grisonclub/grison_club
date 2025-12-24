@@ -45,7 +45,7 @@ export default function HistoryTimeline() {
   const [count, setCount] = React.useState(0);
   
   const plugin = React.useRef(
-    Autoplay({ delay: 1000, stopOnInteraction: true, stopOnMouseEnter: true })
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   React.useEffect(() => {
@@ -85,8 +85,6 @@ export default function HistoryTimeline() {
         <Carousel
           setApi={setApi}
           plugins={[plugin.current]}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
           opts={{
             align: 'start',
             loop: true,
