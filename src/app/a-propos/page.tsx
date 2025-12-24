@@ -5,6 +5,7 @@ import { Award, Target, Users, BookOpen, ArrowRight } from 'lucide-react';
 import placeholderImages from '@/lib/placeholder-images.json';
 import Link from 'next/link';
 import HistoryTimeline from '@/components/sections/history-timeline';
+import BureauExecutif from '@/components/sections/bureau-executif';
 
 const founderImage = placeholderImages.placeholderImages.find(p => p.imageHint === 'youth action');
 const aboutHeroImage = placeholderImages.placeholderImages.find(p => p.id === 'event-seminar');
@@ -64,6 +65,8 @@ export default function AboutPage() {
               </div>
           </div>
       </section>
+      
+      <BureauExecutif />
 
       <HistoryTimeline />
 
