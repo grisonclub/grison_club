@@ -44,7 +44,7 @@ export default function ValeursPage() {
                 <div className="max-w-4xl mx-auto divide-y divide-slate-200 dark:divide-slate-800">
                     <Section>
                         <div className="prose prose-lg dark:prose-invert max-w-none text-center">
-                            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 text-center">
                                 Une organisation <span className="text-primary">engagée</span> au service des communautés
                             </h2>
                             <p className="lead">

@@ -17,7 +17,7 @@ export default function AboutLayout({
         </div>
       </section>
       
-      <nav className="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 sticky top-[80px] z-30">
+      <nav className="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-30">
           <div className="container mx-auto px-4">
               <AboutTabs />
           </div>
