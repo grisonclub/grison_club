@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -14,29 +15,29 @@ import { cn } from '@/lib/utils';
 
 const timelineData = [
   {
-    year: '2021',
+    year: '2017',
     title: 'Fondation & Vision',
-    description: 'Le Grison Club est officiellement créé par un groupe de jeunes leaders visionnaires avec l\'ambition de catalyser un changement positif en Guinée.',
+    description: 'Le Grison Club naît au sein du Complexe Scolaire Ahmadou Dieng, à l’initiative de trois jeunes élèves visionnaires, avec pour but de maîtriser l\'art de la parole en public.',
+  },
+  {
+    year: '2018',
+    title: 'Premières Compétitions',
+    description: 'Lancement de la première compétition de débat, marquant le début d\'une série d\'initiatives éducatives pour renforcer l\'esprit critique et la confiance en soi.',
   },
   {
     year: '2022',
-    title: 'Premières Actions',
-    description: 'Lancement des premières campagnes de terrain, incluant des sessions de sensibilisation dans les écoles et des opérations de reboisement.',
+    title: 'Croissance & Impact National',
+    description: 'L\'association co-organise la Semaine Nationale du Mérite Scolaire (SENAMSCO), affirmant sa présence sur la scène nationale.',
   },
   {
-    year: '2023',
-    title: 'Expansion des Clubs',
-    description: 'Création de nouvelles branches comme le "Grison English Club" et "Amazone Grison Club" pour diversifier nos actions.',
+    year: 'Aujourd\'hui',
+    title: 'Diversification des Actions',
+    description: 'Fidèle à sa mission, le Grison Club étend ses actions à l\'environnement, la santé et le développement communautaire.',
   },
   {
-    year: '2024',
-    title: 'Partenariats Stratégiques',
-    description: 'Établissement de partenariats clés avec des organisations locales et internationales pour renforcer nos programmes.',
-  },
-  {
-    year: 'Avenir',
-    title: 'Vision 2030',
-    description: 'Définition de notre feuille de route "Vision 2030" axée sur l\'innovation sociale et le leadership des jeunes.',
+    year: 'Idéal',
+    title: 'Une Mission Continue',
+    description: 'Depuis sa création, le club poursuit le même idéal : former des citoyens conscients, responsables et engagés pour leurs communautés.',
   },
 ];
 
@@ -46,7 +47,7 @@ export default function HistoryTimeline() {
   const [count, setCount] = React.useState(0);
   
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
 
   React.useEffect(() => {
