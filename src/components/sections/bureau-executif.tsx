@@ -8,7 +8,7 @@ const teamMembers = [
     imageUrl: 'https://picsum.photos/seed/Alpha/400/400',
     social: { facebook: '#', twitter: '#', linkedin: '#' },
     hint: 'man portrait',
-    bio: 'Leader visionnaire, il a fondé le Grison Club avec la passion de former la prochaine génération de leaders guinéens.'
+    bio: 'Leader visionnaire, il a fondé le Grison Club avec la passion de former la prochaine génération de leaders.'
   },
   {
     name: 'Mariama Barry',
@@ -33,6 +33,38 @@ const teamMembers = [
     social: { facebook: '#', twitter: '#', linkedin: '#' },
     hint: 'woman professional',
     bio: 'Gardienne de la santé financière du club, elle gère les fonds avec rigueur et transparence.'
+  },
+  {
+    name: 'Idrissa Keita',
+    role: 'Responsable Éducation',
+    imageUrl: 'https://picsum.photos/seed/Idrissa/400/400',
+    social: { facebook: '#', twitter: '#', linkedin: '#' },
+    hint: 'male teacher',
+    bio: 'Dédié à l\'éducation, il développe des programmes de formation pour impacter la jeunesse guinéenne.'
+  },
+  {
+    name: 'Fatoumata Kaba',
+    role: 'Responsable Culture',
+    imageUrl: 'https://picsum.photos/seed/Fatoumata/400/400',
+    social: { facebook: '#', twitter: '#', linkedin: '#' },
+    hint: 'female artist',
+    bio: 'Passionnée par les arts, elle promeut la richesse culturelle de la Guinée à travers divers événements.'
+  },
+  {
+    name: 'Abdoulaye Touré',
+    role: 'Responsable Environnement',
+    imageUrl: 'https://picsum.photos/seed/Abdoulaye/400/400',
+    social: { facebook: '#', twitter: '#', linkedin: '#' },
+    hint: 'male activist',
+    bio: 'Militant écologiste, il mène les initiatives de reboisement et de sensibilisation à l\'environnement.'
+  },
+  {
+    name: 'Oumou Diallo',
+    role: 'Coordinatrice des Clubs',
+    imageUrl: 'https://picsum.photos/seed/Oumou/400/400',
+    social: { facebook: '#', twitter: '#', linkedin: '#' },
+    hint: 'female community manager',
+    bio: 'Elle assure la liaison et la synergie entre toutes les branches affiliées du Grison Club sur le terrain.'
   },
 ];
 
@@ -61,7 +93,7 @@ export default function BureauExecutif() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member) => (
-            <div key={member.name} className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden text-center">
+            <div key={member.name} className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden text-center">
               <div className="relative w-full aspect-square">
                  <Image
                     src={member.imageUrl}
@@ -75,7 +107,7 @@ export default function BureauExecutif() {
               <div className="p-6">
                 <h4 className="text-xl font-bold text-slate-900 dark:text-white">{member.name}</h4>
                 <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mb-5 min-h-[80px]">{member.bio}</p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-5 min-h-[60px]">{member.bio}</p>
                 <div className="flex items-center justify-center gap-3">
                   <a href={member.social.facebook} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><Facebook size={18} /></a>
                   <a href={member.social.twitter} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><XLogo /></a>
