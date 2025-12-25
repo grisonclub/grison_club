@@ -44,7 +44,9 @@ export default function ValeursPage() {
                 <div className="max-w-4xl mx-auto divide-y divide-slate-200 dark:divide-slate-800">
                     <Section>
                         <div className="prose prose-lg dark:prose-invert max-w-none text-center">
-                            <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-4">Une organisation engagée au service des communautés</h3>
+                            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">
+                                Une organisation <span className="text-primary">engagée</span> au service des communautés
+                            </h2>
                             <p className="lead">
                                 Le Grison Club est une organisation caritative, apolitique et à but non lucratif, engagée dans le développement communautaire et la promotion d’une citoyenneté active et responsable.
                             </p>
