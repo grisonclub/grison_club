@@ -1,6 +1,6 @@
-import BureauPage from './bureau/page';
+import ValeursPage from './valeurs/page';
 
-// Default to showing the bureau page
+// Default to showing the "Qui sommes nous" (valeurs) page
 export default function AboutPage() {
-  return <BureauPage />;
+  return <ValeursPage />;
 }

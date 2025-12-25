@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 const tabs = [
-  { name: 'Nos dirigeants', href: '/a-propos/bureau' },
   { name: 'Qui sommes nous', href: '/a-propos/valeurs' },
   { name: 'Notre Histoire', href: '/a-propos/histoire' },
+  { name: 'Nos dirigeants', href: '/a-propos/bureau' },
   { name: 'Nos Alumnis', href: '/a-propos/alumnis' },
 ];
 
