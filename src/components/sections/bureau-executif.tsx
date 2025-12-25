@@ -5,44 +5,34 @@ const teamMembers = [
   {
     name: 'Alpha Diallo',
     role: 'Président Fondateur',
-    imageUrl: 'https://picsum.photos/seed/Alpha/400/500',
+    imageUrl: 'https://picsum.photos/seed/Alpha/400/400',
     social: { facebook: '#', twitter: '#', linkedin: '#' },
     hint: 'man portrait',
+    bio: 'Leader visionnaire, il a fondé le Grison Club avec la passion de former la prochaine génération de leaders guinéens.'
   },
   {
     name: 'Mariama Barry',
     role: 'Vice-Présidente',
-    imageUrl: 'https://picsum.photos/seed/Mariama/400/500',
+    imageUrl: 'https://picsum.photos/seed/Mariama/400/400',
     social: { facebook: '#', twitter: '#', linkedin: '#' },
     hint: 'woman portrait',
+    bio: 'Engagée pour l\'autonomisation des femmes, elle supervise les programmes sociaux et l\'expansion des clubs.'
   },
   {
     name: 'Moussa Camara',
     role: 'Secrétaire Général',
-    imageUrl: 'https://picsum.photos/seed/Moussa/400/500',
+    imageUrl: 'https://picsum.photos/seed/Moussa/400/400',
     social: { facebook: '#', twitter: '#', linkedin: '#' },
     hint: 'man suit',
+    bio: 'Organisateur méticuleux, il assure la bonne gouvernance et la gestion administrative de l\'association.'
   },
   {
     name: 'Aïssatou Sow',
     role: 'Trésorière Générale',
-    imageUrl: 'https://picsum.photos/seed/Aissatou/400/500',
+    imageUrl: 'https://picsum.photos/seed/Aissatou/400/400',
     social: { facebook: '#', twitter: '#', linkedin: '#' },
     hint: 'woman professional',
-  },
-  {
-    name: 'Ibrahima Kourouma',
-    role: 'Chargé de Communication',
-    imageUrl: 'https://picsum.photos/seed/Ibrahima/400/500',
-    social: { facebook: '#', twitter: '#', linkedin: '#' },
-    hint: 'man smiling',
-  },
-  {
-    name: 'Fatoumata Traoré',
-    role: 'Coordinatrice de Projets',
-    imageUrl: 'https://picsum.photos/seed/Fatoumata/400/500',
-    social: { facebook: '#', twitter: '#', linkedin: '#' },
-    hint: 'woman smiling',
+    bio: 'Gardienne de la santé financière du club, elle gère les fonds avec rigueur et transparence.'
   },
 ];
 
@@ -60,35 +50,36 @@ const XLogo = () => (
 
 export default function BureauExecutif() {
   return (
-    <section className="py-20 bg-white dark:bg-slate-950">
+    <section className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Notre Bureau Exécutif</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Les leaders qui portent notre vision</h3>
-          <p className="text-slate-600 dark:text-slate-400 mt-2 max-w-2xl mx-auto">
-            Une équipe dévouée et passionnée, unie pour l'avancement de notre mission commune.
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Notre Équipe</h2>
+          <p className="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto">
+            Une équipe dévouée et passionnée, unie pour l'avancement de notre mission commune. Voici les leaders qui portent notre vision.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member) => (
-            <div key={member.name} className="relative group overflow-hidden rounded-2xl shadow-lg">
-              <Image
-                src={member.imageUrl}
-                alt={`Portrait de ${member.name}`}
-                width={400}
-                height={500}
-                data-ai-hint={member.hint}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                <h4 className="text-lg font-bold">{member.name}</h4>
-                <p className="text-sm text-slate-300 mb-3">{member.role}</p>
-                <div className="flex items-center gap-3">
-                  <a href={member.social.facebook} className="text-slate-400 hover:text-white transition-colors"><Facebook size={16} /></a>
-                  <a href={member.social.twitter} className="text-slate-400 hover:text-white transition-colors"><XLogo /></a>
-                  <a href={member.social.linkedin} className="text-slate-400 hover:text-white transition-colors"><Linkedin size={16} /></a>
+            <div key={member.name} className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden text-center">
+              <div className="relative w-full aspect-square">
+                 <Image
+                    src={member.imageUrl}
+                    alt={`Portrait de ${member.name}`}
+                    width={400}
+                    height={400}
+                    data-ai-hint={member.hint}
+                    className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white">{member.name}</h4>
+                <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
+                <p className="text-slate-500 dark:text-slate-400 text-sm mb-5 min-h-[80px]">{member.bio}</p>
+                <div className="flex items-center justify-center gap-3">
+                  <a href={member.social.facebook} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><Facebook size={18} /></a>
+                  <a href={member.social.twitter} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><XLogo /></a>
+                  <a href={member.social.linkedin} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><Linkedin size={18} /></a>
                 </div>
               </div>
             </div>
