@@ -14,7 +14,7 @@ import {
 import { Logo } from '../logo';
 
 const navLinks = [
-  { href: '/a-propos', label: 'À propos' },
+  { href: '/a-propos/histoire', label: 'À propos' },
   { href: '/#clubs', label: 'Clubs' },
   { href: '/#actualites', label: 'Actualités' },
   { href: '/#adhesion', label: 'Adhésion' },
@@ -35,6 +35,13 @@ export default function Header() {
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
     if (href.startsWith('/#')) {
+      // It's an anchor link, but we might not be on the home page.
+      // First, navigate to home page if we are not there.
+      if (window.location.pathname !== '/') {
+        window.location.href = `/${href.substring(1)}`;
+        return;
+      }
+      
       const id = href.substring(2);
       const element = document.getElementById(id);
       if (element) {
@@ -73,10 +80,15 @@ export default function Header() {
 
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map(link => (
-             <Link
+            <Link
               key={link.href}
               href={link.href}
-              onClick={() => handleNavClick(link.href)}
+              onClick={(e) => {
+                if (link.href.startsWith('/#')) {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }
+              }}
               className={cn(
                 'font-medium transition-colors hover:text-primary',
                 isScrolled
@@ -118,7 +130,14 @@ export default function Header() {
                   <SheetClose asChild key={link.href}>
                     <Link
                       href={link.href}
-                      onClick={() => handleNavClick(link.href)}
+                      onClick={(e) => {
+                          if (link.href.startsWith('/#')) {
+                              e.preventDefault();
+                              handleNavClick(link.href);
+                          } else {
+                              setIsMenuOpen(false);
+                          }
+                      }}
                       className="text-slate-600 dark:text-slate-300 font-medium text-lg py-2"
                     >
                       {link.label}
