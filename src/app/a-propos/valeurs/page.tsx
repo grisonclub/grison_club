@@ -1,19 +1,19 @@
 import { Award, Target, Users, BookOpen, ShieldCheck, Handshake, BrainCircuit, Heart, Eye, Flag, Scale, Leaf, Hand, Library, Microscope, UsersRound, Speech } from 'lucide-react';
 
 const Section = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-    <div className={`py-12 border-b border-slate-200 dark:border-slate-800 ${className}`}>
+    <div className={`py-12 border-b border-slate-200 dark:border-slate-800 last:border-b-0 ${className}`}>
         {children}
     </div>
 );
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6">
+    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6 text-center">
         {children}
     </h3>
 );
 
 const IconWrapper = ({ children }: { children: React.ReactNode }) => (
-    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4 md:mb-0 md:mr-6">
+    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6 mx-auto">
         {children}
     </div>
 );
@@ -38,69 +38,63 @@ export default function ValeursPage() {
     ];
 
     return (
-        <div className="bg-white dark:bg-slate-950">
-            <div className="container mx-auto px-4 divide-y divide-slate-200 dark:divide-slate-800">
-                <div className="py-16 sm:py-24 max-w-4xl mx-auto">
+        <div className="bg-white dark:bg-slate-950 py-16 sm:py-24">
+            <div className="container mx-auto px-4">
+                <div className="max-w-4xl mx-auto divide-y divide-slate-200 dark:divide-slate-800">
                     <Section>
-                        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                            Le Grison Club est une organisation caritative, apolitique et à but non lucratif, engagée dans le développement communautaire et la promotion d’une citoyenneté active et responsable.
-                        </p>
-                        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                            Nous œuvrons pour former, inspirer et mobiliser des jeunes et des citoyens engagés autour de projets éducatifs, culturels, sociaux et environnementaux, afin de contribuer durablement à l’amélioration des conditions de vie au sein de nos communautés.
-                        </p>
-                        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                            Guidé par des valeurs de solidarité, d’intégrité, d’engagement citoyen et de leadership, le Grison Club se positionne comme un cadre d’action, de réflexion et de service, favorisant l’émergence de leaders conscients, responsables et tournés vers l’intérêt général.
-                        </p>
-                        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                            À travers un réseau de clubs affiliés, organisés par âge ou par profession, nous encourageons la participation active, le bénévolat et la coopération, tout en respectant la diversité des cultures et des opinions.
-                        </p>
-                        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Notre action s’inscrit dans une vision à long terme : bâtir des communautés plus solidaires, inclusives et durables, en Guinée et à l’international.
-                        </p>
+                        <div className="prose prose-lg dark:prose-invert max-w-none text-center">
+                            <p className="lead">
+                                Le Grison Club est une organisation caritative, apolitique et à but non lucratif, engagée dans le développement communautaire et la promotion d’une citoyenneté active et responsable.
+                            </p>
+                            <p>
+                                Nous œuvrons pour former, inspirer et mobiliser des jeunes et des citoyens engagés autour de projets éducatifs, culturels, sociaux et environnementaux, afin de contribuer durablement à l’amélioration des conditions de vie au sein de nos communautés.
+                            </p>
+                             <p>
+                                Guidé par des valeurs de solidarité, d’intégrité, d’engagement citoyen et de leadership, le Grison Club se positionne comme un cadre d’action, de réflexion et de service, favorisant l’émergence de leaders conscients, responsables et tournés vers l’intérêt général.
+                            </p>
+                        </div>
                     </Section>
 
-                    <Section className="text-center">
+                    <Section className="text-center bg-slate-50 dark:bg-slate-900 rounded-2xl my-12">
                         <h3 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Notre Devise</h3>
                         <p className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-200 italic">
                             « Formé, Inspirer, Agir pour Demain »
                         </p>
                     </Section>
                     
-                    <Section>
-                        <div className="flex flex-col md:flex-row items-center">
-                            <IconWrapper><Target size={32} /></IconWrapper>
-                            <div>
-                                <SectionTitle>Notre Mission</SectionTitle>
+                    <div className="grid md:grid-cols-2 gap-x-12">
+                        <Section>
+                            <div className="text-center">
+                                <IconWrapper><Target size={32} /></IconWrapper>
+                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Notre Mission</h3>
                                 <p className="text-slate-600 dark:text-slate-300">
-                                    La mission du Grison Club est de former, inspirer et accompagner une génération de citoyens engagés, capables d’agir concrètement pour le bien-être social, culturel et environnemental de leurs communautés. À travers des actions éducatives, culturelles, humanitaires et écologiques, nous encourageons l’épanouissement personnel, le leadership responsable et la participation active des jeunes, des femmes et des citoyens dans la vie communautaire.
+                                    Former, inspirer et accompagner une génération de citoyens engagés, capables d’agir concrètement pour le bien-être social, culturel et environnemental de leurs communautés. Nous encourageons l’épanouissement personnel, le leadership responsable et la participation active de tous.
                                 </p>
                             </div>
-                        </div>
-                    </Section>
+                        </Section>
 
-                    <Section>
-                        <div className="flex flex-col md:flex-row items-center">
-                           <IconWrapper><Eye size={32} /></IconWrapper>
-                            <div>
-                                <SectionTitle>Notre Vision</SectionTitle>
+                        <Section>
+                           <div className="text-center">
+                                <IconWrapper><Eye size={32} /></IconWrapper>
+                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Notre Vision</h3>
                                 <p className="text-slate-600 dark:text-slate-300">
-                                    Le Grison Club ambitionne de devenir un acteur de référence du service communautaire et humanitaire, en Guinée et à l’international. Nous œuvrons à la construction d’un réseau international de clubs solidaires, unis par une vision commune de transformation sociale, favorisant la coopération entre les peuples, la promotion de la citoyenneté et le développement durable.
+                                    Devenir un acteur de référence du service communautaire en Guinée et à l’international, en bâtissant un réseau de clubs solidaires unis par une vision de transformation sociale, de coopération et de développement durable.
                                 </p>
                             </div>
-                        </div>
-                    </Section>
+                        </Section>
+                    </div>
 
                     <Section>
-                        <SectionTitle>Nos Valeurs</SectionTitle>
-                        <p className="text-slate-600 dark:text-slate-300 mb-8">Les actions du Grison Club reposent sur des valeurs fortes qui guident chacune de nos initiatives :</p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <SectionTitle>Nos Valeurs Fondamentales</SectionTitle>
+                        <p className="text-slate-600 dark:text-slate-400 mb-12 text-center max-w-2xl mx-auto">Les actions du Grison Club reposent sur des principes forts qui guident chacune de nos initiatives et définissent notre identité.</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                             {values.map((value, index) => (
-                                <div key={index} className="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex items-start space-x-4">
-                                    <div className="text-primary mt-1">{value.icon}</div>
-                                    <div>
-                                        <h4 className="font-bold text-slate-800 dark:text-white mb-1">{value.title}</h4>
-                                        <p className="text-sm text-slate-500 dark:text-slate-400">{value.text}</p>
+                                <div key={index} className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 text-center hover:shadow-lg hover:border-primary/50 transition-all">
+                                    <div className="inline-block p-3 rounded-full bg-primary/10 text-primary mb-4">
+                                        {value.icon}
                                     </div>
+                                    <h4 className="font-bold text-slate-800 dark:text-white mb-2 text-lg">{value.title}</h4>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">{value.text}</p>
                                 </div>
                             ))}
                         </div>
@@ -108,10 +102,10 @@ export default function ValeursPage() {
                     
                     <Section>
                         <SectionTitle>Nos Domaines d’Action</SectionTitle>
-                        <p className="text-slate-600 dark:text-slate-300 mb-8">Le Grison Club intervient principalement dans les domaines suivants :</p>
-                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <p className="text-slate-600 dark:text-slate-400 mb-12 text-center max-w-2xl mx-auto">Le Grison Club intervient principalement dans les domaines suivants pour concrétiser sa mission.</p>
+                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                             {actions.map((action, index) => (
-                                <div key={index} className="flex items-start space-x-4">
+                                <div key={index} className="flex items-start space-x-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50">
                                     <div className="text-primary mt-1">{action.icon}</div>
                                     <div>
                                         <h4 className="font-semibold text-slate-800 dark:text-white">{action.title}</h4>
