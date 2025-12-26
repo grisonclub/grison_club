@@ -238,13 +238,6 @@ export default function ValeursPage() {
                 ))}
             </div>
         </Section>
-
-        <Section className="text-center bg-primary/90 text-white">
-            <h3 className="text-sm font-bold text-white/80 uppercase tracking-widest mb-3">Notre Devise</h3>
-            <p className="text-3xl md:text-4xl font-bold italic">
-                « Formé, Inspirer, Agir pour Demain »
-            </p>
-        </Section>
     </div>
   );
 }
