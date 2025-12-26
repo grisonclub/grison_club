@@ -49,12 +49,12 @@ export default function HistoirePage() {
   return (
     <div className="bg-white dark:bg-slate-950">
       <section className="py-16 sm:py-24 text-center bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div className="container mx-auto px-4">
+        <div className="px-4 md:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
             L'Histoire du Grison Club
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Le Grison Club est né le 08 novembre 2017 au sein du Complexe Scolaire Ahmadou Dieng, à l’initiative de trois jeunes élèves visionnaires : Mohamed Chérif Sow, Abdourahmane Barry et Djan Sow. Animés par une même passion pour l’éducation, la culture et l’expression citoyenne, ils ont décidé de créer un cadre d’apprentissage et d’échange destiné à renforcer les compétences intellectuelles et sociales des élèves.
+          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-5xl mx-auto">
+            Le Grison Club est né le 08 novembre 2017 au sein du Complexe Scolaire Ahmadou Dieng, à l’initiative de trois <span className="text-primary font-semibold">jeunes élèves visionnaires</span> : Mohamed Chérif Sow, Abdourahmane Barry et Djan Sow. Animés par une même <span className="text-primary font-semibold">passion</span> pour l’éducation, la culture et l’expression citoyenne, ils ont décidé de créer un cadre d’apprentissage et d’échange destiné à renforcer les <span className="text-primary font-semibold">compétences intellectuelles et sociales</span> des élèves.
           </p>
         </div>
       </section>
