@@ -9,7 +9,7 @@ export default function HistoirePage() {
           <h2 className="text-5xl md:text-6xl font-bold text-primary mb-4">
             Notre Histoire
           </h2>
-          <p className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400 max-w-3xl mx-auto">
+          <p className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-400 max-w-4xl mx-auto leading-tight">
             De la vision de trois jeunes élèves en 2017 à un mouvement national, découvrez le parcours inspirant du Grison Club, une aventure humaine au service de la communauté.
           </p>
         </div>
