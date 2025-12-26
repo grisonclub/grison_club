@@ -1,53 +1,90 @@
-
-import HistoryTimeline from "@/components/sections/history-timeline";
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import placeholderImages from '@/lib/placeholder-images.json';
 
-const missionImage = placeholderImages.placeholderImages.find(p => p.imageHint === 'education learning');
-
-function Manifeste() {
-    return (
-        <section className="py-16 sm:py-24 bg-white dark:bg-slate-950">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="prose prose-lg dark:prose-invert max-w-none">
-                        <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Notre Manifeste</h2>
-                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Bâtir un Pont vers l'Avenir</h3>
-                        <p>
-                            Le Grison Club est né d'un constat simple : la jeunesse est la clé de voûte de toute transformation sociale durable. Fondée en 2021, notre association apolitique et à but non lucratif s'est donné pour mission de former, d'inspirer et de mobiliser cette jeunesse pour qu'elle devienne le moteur d'un changement positif.
-                        </p>
-                        <p>
-                            Nous croyons en un monde où chaque jeune a les outils pour réaliser son potentiel, où la culture est un vecteur de dialogue et où l'environnement est préservé pour les générations futures. C'est cette vision qui guide chacune de nos actions.
-                        </p>
-                        <Button size="lg" asChild className="bg-primary hover:bg-emerald-500 text-white px-8 py-3 rounded-full font-bold text-lg mt-6">
-                            <Link href="/#adhesion">Devenir Membre</Link>
-                        </Button>
-                    </div>
-                    <div className="relative h-96 md:h-auto self-stretch">
-                        {missionImage && (
-                            <Image
-                                src={missionImage.imageUrl}
-                                alt={missionImage.description}
-                                fill
-                                className="rounded-2xl shadow-2xl object-cover"
-                                data-ai-hint={missionImage.imageHint}
-                            />
-                        )}
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
-}
-
+const historyMilestones = [
+  {
+    period: '2017',
+    title: 'La Fondation',
+    description: 'Né au Complexe Scolaire Ahmadou Dieng, le club visait à maîtriser l\'art de la parole en public.',
+    imageUrl: 'https://picsum.photos/seed/foundation/600/400',
+    hint: 'students planning'
+  },
+  {
+    period: '2017-2018',
+    title: 'Les Débuts & l\'Identité',
+    description: 'D\'abord "Club d\'Études Albert Camus", le nom a évolué pour devenir "Grison Club", symbolisant la maturité et l\'engagement.',
+    imageUrl: 'https://picsum.photos/seed/identity/600/400',
+    hint: 'old book'
+  },
+  {
+    period: '2018',
+    title: 'Premières Compétitions',
+    description: 'Lancement des premiers débats inter-classes pour renforcer l\'esprit critique et la confiance en soi.',
+    imageUrl: 'https://picsum.photos/seed/competition/600/400',
+    hint: 'public speaking'
+  },
+  {
+    period: '2022',
+    title: 'Impact National',
+    description: 'Co-organisation de la Semaine Nationale du Mérite Scolaire (SENAMSCO), affirmant sa présence nationale.',
+    imageUrl: 'https://picsum.photos/seed/national/600/400',
+    hint: 'award ceremony'
+  },
+  {
+    period: 'Aujourd\'hui',
+    title: 'Diversification',
+    description: 'Extension des actions à l\'environnement, la santé et le développement communautaire.',
+    imageUrl: 'https://picsum.photos/seed/today/600/400',
+    hint: 'community service'
+  },
+  {
+    period: 'Idéal',
+    title: 'Une Mission Continue',
+    description: 'Poursuite de l\'idéal de former des citoyens conscients, responsables et engagés pour l\'avenir.',
+    imageUrl: 'https://picsum.photos/seed/mission/600/400',
+    hint: 'group silhouette sunset'
+  },
+];
 
 export default function HistoirePage() {
-    return (
-        <>
-            <Manifeste />
-            <HistoryTimeline />
-        </>
-    );
+  return (
+    <div className="bg-white dark:bg-slate-950">
+      <section className="py-16 sm:py-24 text-center bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+            L'Histoire du Grison Club
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+            Le Grison Club est né le 08 novembre 2017 à l’initiative de trois jeunes élèves visionnaires. Animés par une passion pour l’éducation et l’expression citoyenne, ils ont créé un cadre pour renforcer les compétences de la jeunesse.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-24">
+        <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Le Grison Club à Travers le Temps</h3>
+                <p className="text-slate-500 dark:text-slate-400 mt-2">Cliquez sur les cartes pour explorer les étapes clés de notre parcours.</p>
+            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {historyMilestones.map((milestone) => (
+              <div key={milestone.title} className="group cursor-pointer">
+                 <div className="overflow-hidden rounded-2xl mb-4 shadow-lg group-hover:shadow-2xl transition-shadow">
+                  <Image
+                    src={milestone.imageUrl}
+                    alt={milestone.title}
+                    width={600}
+                    height={400}
+                    data-ai-hint={milestone.hint}
+                    className="w-full aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <p className="text-primary font-semibold text-sm">{milestone.period}</p>
+                <h4 className="text-lg font-bold text-slate-800 dark:text-white mt-1">{milestone.title}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
