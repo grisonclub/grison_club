@@ -6,7 +6,7 @@ const historyMilestones = [
   {
     period: '2017',
     title: 'La Fondation',
-    description: 'Né au Complexe Scolaire Ahmadou Dieng, le club visait à maîtriser l\'art de la parole en public, à l\'initiative de trois jeunes élèves visionnaires : Mohamed Chérif Sow, Abdourahmane Barry et Djan Sow.',
+    description: 'C’est au Complexe Scolaire Ahmadou Dieng que le club voit le jour, porté par l’initiative de trois jeunes élèves — Mohamed Chérif Sow, Abdourahmane Barry et Djan Sow — ont posé les bases d’un club dédié à l’expression orale et à la confiance en soi.',
   },
   {
     period: '2017-2018',
@@ -17,6 +17,11 @@ const historyMilestones = [
     period: '2018',
     title: 'Premières Compétitions',
     description: 'Lancement des premiers débats inter-classes pour renforcer l\'esprit critique et la confiance en soi. Un moment fondateur.',
+  },
+  {
+    period: '2020',
+    title: 'Solidarité face à la Pandémie',
+    description: 'En pleine crise sanitaire, le Grison Club a mené une campagne de sensibilisation sur la COVID-19 et a effectué des dons, en collaboration avec l\'ONG ADEPE pour soutenir les communautés.',
   },
   {
     period: '2022',

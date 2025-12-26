@@ -10,8 +10,7 @@ export default function HistoirePage() {
             Notre Histoire
           </h2>
           <p className="text-2xl md:text-3xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            De la vision de trois jeunes élèves en 2017 à un mouvement national, découvrez le parcours inspirant du Grison Club, une aventure humaine au service de la communauté.
-          </p>
+              De la vision de trois jeunes élèves en 2017 à un réseau de clubs engagés, découvrez le parcours inspirant du Grison Club, une aventure humaine au service des communautés.          </p>
         </div>
       </section>
 

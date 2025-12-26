@@ -17,7 +17,7 @@ const timelineData = [
   {
     year: '2017',
     title: 'Fondation & Vision',
-    description: 'Le Grison Club naît au sein du Complexe Scolaire Ahmadou Dieng, à l’initiative de trois jeunes élèves visionnaires, avec pour but de maîtriser l\'art de la parole en public.',
+    description: "C’est au Complexe Scolaire Ahmadou Dieng que le club voit le jour, porté par l’initiative de trois jeunes élèves — Mohamed Chérif Sow, Abdourahmane Barry et Djan Sow — ont posé les bases d’un club dédié à l’expression orale et à la confiance en soi.",
   },
   {
     year: '2018',
