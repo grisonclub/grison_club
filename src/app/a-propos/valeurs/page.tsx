@@ -128,7 +128,7 @@ export default function ValeursPage() {
                 <SectionTitle>
                     Nos 3 Piliers d'Action
                 </SectionTitle>
-                <p className="text-lg text-slate-400 max-w-2xl mx-auto mt-4">
+                <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-4">
                     Notre engagement repose sur trois piliers fondamentaux qui guident toutes nos initiatives pour un impact maximal.
                 </p>
             </div>
