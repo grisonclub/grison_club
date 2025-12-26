@@ -1,7 +1,8 @@
+
 import Image from 'next/image';
 import { Facebook, Twitter, Linkedin } from 'lucide-react';
 
-const teamMembers = [
+const executiveMembers = [
   {
     name: 'Alpha Diallo',
     role: 'Président Fondateur',
@@ -68,6 +69,30 @@ const teamMembers = [
   },
 ];
 
+const boardMembers = [
+    {
+      name: 'Dr. Thierno Diallo',
+      role: 'Président du CA',
+      imageUrl: 'https://picsum.photos/seed/Thierno/400/400',
+      hint: 'senior man suit',
+      bio: 'Expert en développement international, il apporte une vision stratégique pour guider l\'organisation.'
+    },
+    {
+      name: 'Hawa Kante',
+      role: 'Vice-Présidente du CA',
+      imageUrl: 'https://picsum.photos/seed/Hawa/400/400',
+      hint: 'senior woman professional',
+      bio: 'Spécialiste en droit des affaires, elle veille à la conformité et à la bonne gouvernance de l\'association.'
+    },
+    {
+      name: 'Sékou Condé',
+      role: 'Conseiller',
+      imageUrl: 'https://picsum.photos/seed/Sekou/400/400',
+      hint: 'wise man portrait',
+      bio: 'Ancien ministre de l\'Éducation, il partage sa sagesse et son expérience pour orienter les programmes.'
+    },
+]
+
 const XLogo = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -80,44 +105,61 @@ const XLogo = () => (
     </svg>
   );
 
-export default function BureauExecutif() {
+const TeamMemberCard = ({ member }: { member: typeof executiveMembers[0] }) => (
+    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden text-center group">
+        <div className="pt-8">
+            <Image
+                src={member.imageUrl}
+                alt={`Portrait de ${member.name}`}
+                width={144}
+                height={144}
+                data-ai-hint={member.hint}
+                className="w-36 h-36 object-cover rounded-full mx-auto border-4 border-white dark:border-slate-700 shadow-md"
+            />
+        </div>
+        <div className="p-6">
+        <h4 className="text-xl font-bold text-slate-900 dark:text-white">{member.name}</h4>
+        <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
+        <p className="text-slate-500 dark:text-slate-400 text-sm mb-5 min-h-[60px]">{member.bio}</p>
+        <div className="flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href={member.social.facebook} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><Facebook size={18} /></a>
+            <a href={member.social.twitter} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><XLogo /></a>
+            <a href={member.social.linkedin} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><Linkedin size={18} /></a>
+        </div>
+        </div>
+    </div>
+)
+
+export default function Bureau() {
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-900">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Notre Équipe</h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-4 max-w-2xl mx-auto">
-            Une équipe dévouée et passionnée, unie pour l'avancement de notre mission commune. Voici les leaders qui portent notre vision.
-          </p>
+    <div className="container mx-auto px-4">
+        
+        {/* Bureau Exécutif */}
+        <div className="mb-20">
+            <div className="text-center mb-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">Le Bureau Exécutif</h3>
+                <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl mx-auto">L'équipe opérationnelle qui pilote les projets et anime la vie de l'association au quotidien.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {executiveMembers.map((member) => (
+                    <TeamMemberCard key={member.name} member={member} />
+                ))}
+            </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member) => (
-            <div key={member.name} className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden text-center">
-              <div className="relative w-full aspect-square">
-                 <Image
-                    src={member.imageUrl}
-                    alt={`Portrait de ${member.name}`}
-                    width={400}
-                    height={400}
-                    data-ai-hint={member.hint}
-                    className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h4 className="text-xl font-bold text-slate-900 dark:text-white">{member.name}</h4>
-                <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mb-5 min-h-[60px]">{member.bio}</p>
-                <div className="flex items-center justify-center gap-3">
-                  <a href={member.social.facebook} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><Facebook size={18} /></a>
-                  <a href={member.social.twitter} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><XLogo /></a>
-                  <a href={member.social.linkedin} className="w-9 h-9 flex items-center justify-center rounded-md border border-slate-200 dark:border-slate-700 text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-colors"><Linkedin size={18} /></a>
-                </div>
-              </div>
+        {/* Conseil d'Administration */}
+        <div>
+            <div className="text-center mb-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">Le Conseil d'Administration</h3>
+                <p className="text-slate-500 dark:text-slate-400 mt-2 max-w-xl mx-auto">Les garants de la vision stratégique, de l'éthique et de la pérennité du Grison Club.</p>
             </div>
-          ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                {boardMembers.map((member) => (
+                    <TeamMemberCard key={member.name} member={{...member, social: { facebook: '#', twitter: '#', linkedin: '#' }}} />
+                ))}
+            </div>
         </div>
-      </div>
-    </section>
+
+    </div>
   );
 }
