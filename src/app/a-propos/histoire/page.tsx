@@ -53,9 +53,26 @@ export default function HistoirePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
             L'Histoire du Grison Club
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-5xl mx-auto">
-            Le Grison Club est né le 08 novembre 2017 au sein du Complexe Scolaire Ahmadou Dieng, à l’initiative de trois <span className="text-primary font-semibold">jeunes élèves visionnaires</span> : Mohamed Chérif Sow, Abdourahmane Barry et Djan Sow. Animés par une même <span className="text-primary font-semibold">passion</span> pour l’éducation, la culture et l’expression citoyenne, ils ont décidé de créer un cadre d’apprentissage et d’échange destiné à renforcer les <span className="text-primary font-semibold">compétences intellectuelles et sociales</span> des élèves.
-          </p>
+          <div className="prose prose-lg dark:prose-invert max-w-5xl mx-auto text-left">
+            <p>
+              Le Grison Club est né le 08 novembre 2017 au sein du Complexe Scolaire Ahmadou Dieng, à l’initiative de trois <span className="text-primary font-semibold">jeunes élèves visionnaires</span> : Mohamed Chérif Sow, Abdourahmane Barry et Djan Sow. Animés par une même <span className="text-primary font-semibold">passion</span> pour l’éducation, la culture et l’expression citoyenne, ils ont décidé de créer un cadre d’apprentissage et d’échange destiné à renforcer les <span className="text-primary font-semibold">compétences intellectuelles et sociales</span> des élèves.
+            </p>
+            <p>
+              À sa création, l’association portait le nom de Club d’Études Albert Camus (CEAC). Avec l’évolution de ses ambitions et l’élargissement de ses activités, elle devient par la suite le CEPEC (Club d’Études pour la Promotion de l’Éducation et de la Culture), avant d’adopter définitivement le nom <span className="text-primary font-semibold">Grison Club</span>, symbole de maturité, d’ouverture et d’engagement communautaire.
+            </p>
+            <p>
+              L’objectif initial du club était clair : aider les jeunes à vaincre le trac et à maîtriser <span className="text-primary font-semibold">l’art de la prise de parole en public</span>. Pour atteindre cet objectif, le Grison Club a très tôt mis en place des compétitions de débats entre classes, favorisant l’expression orale, l’esprit critique et la confiance en soi. La première compétition de débat s’est tenue en 2018, marquant le début d’une série d’initiatives éducatives, notamment des compétitions interscolaires, qui ont contribué à renforcer la notoriété et l’impact du club.
+            </p>
+            <p>
+              Au fil des années, le Grison Club a connu une croissance significative grâce à l’adhésion de nouveaux membres partageant les mêmes valeurs. Cette dynamique a permis à l’association d’élargir son champ d’action et de s’impliquer dans des événements d’envergure nationale, notamment en tant que co‑organisateur de la <span className="text-primary font-semibold">Semaine Nationale du Mérite Scolaire (SENAMSCO)</span> en 2022.
+            </p>
+             <p>
+              Fidèle à sa mission de service communautaire, le Grison Club a progressivement diversifié ses domaines d’intervention. En plus de l’éducation et de la culture, l’association s’engage aujourd’hui dans des actions liées à <span className="text-primary font-semibold">l’environnement, à la santé et au développement communautaire</span>, contribuant ainsi à l’amélioration durable des conditions de vie des populations.
+            </p>
+            <p>
+              Depuis sa création, le Grison Club poursuit un même idéal : former des <span className="text-primary font-semibold">citoyens conscients, responsables et engagés</span>, capables d’agir positivement pour leurs communautés et pour l’avenir.
+            </p>
+          </div>
         </div>
       </section>
 
