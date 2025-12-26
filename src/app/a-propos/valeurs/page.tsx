@@ -20,13 +20,13 @@ const environmentPillarImage = PlaceHolderImages.find(p => p.id === 'environment
 const pillars = [
   {
     title: 'Éducation',
-    description: 'Former des leaders éclairés et responsables pour l’avenir de la Guinée. Nous organisons des concours académiques, des séminaires et des programmes de développement du leadership pour renforcer les capacités de la jeunesse.',
+    description: 'Former des leaders éclairés et responsables pour l’avenir. Nous organisons des concours académiques, des séminaires et des programmes de développement du leadership pour renforcer les capacités de la jeunesse.',
     image: educationPillarImage?.imageUrl,
     hint: educationPillarImage?.imageHint,
   },
   {
     title: 'Culture',
-    description: 'Valoriser le riche patrimoine guinéen et encourager l’expression citoyenne. Nos activités incluent des débats, des concours de lecture et la promotion des arts et traditions locales pour renforcer le dialogue interculturel.',
+    description: 'Faire de la culture un levier de cohésion sociale, d’expression et de valorisation des talents, en s’adaptant aux réalités de chaque communauté, partout dans le monde.',
     image: culturePillarImage?.imageUrl,
     hint: culturePillarImage?.imageHint,
   },
@@ -128,7 +128,7 @@ export default function ValeursPage() {
                 <SectionTitle>
                     Nos 3 Piliers d'Action
                 </SectionTitle>
-                <p className="text-xl text-slate-400 max-w-2xl mx-auto mt-4">
+                <p className="text-2xl text-slate-400 max-w-2xl mx-auto mt-4">
                     Notre engagement repose sur trois piliers fondamentaux qui guident toutes nos initiatives pour un impact maximal.
                 </p>
             </div>
@@ -241,3 +241,5 @@ export default function ValeursPage() {
     </div>
   );
 }
+
+    
