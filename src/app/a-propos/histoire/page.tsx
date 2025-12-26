@@ -54,7 +54,7 @@ export default function HistoirePage() {
             L'Histoire du Grison Club
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Le Grison Club est né le 08 novembre 2017 à l’initiative de trois jeunes élèves visionnaires. Animés par une passion pour l’éducation et l’expression citoyenne, ils ont créé un cadre pour renforcer les compétences de la jeunesse.
+            Le Grison Club est né le 08 novembre 2017 au sein du Complexe Scolaire Ahmadou Dieng, à l’initiative de trois jeunes élèves visionnaires : Mohamed Chérif Sow, Abdourahmane Barry et Djan Sow. Animés par une même passion pour l’éducation, la culture et l’expression citoyenne, ils ont décidé de créer un cadre d’apprentissage et d’échange destiné à renforcer les compétences intellectuelles et sociales des élèves.
           </p>
         </div>
       </section>
