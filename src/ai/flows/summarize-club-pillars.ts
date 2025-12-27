@@ -47,15 +47,15 @@ const summarizeClubPillarsPrompt = ai.definePrompt({
   name: 'summarizeClubPillarsPrompt',
   input: {schema: SummarizeClubPillarsInputSchema},
   output: {schema: SummarizeClubPillarsOutputSchema},
-  prompt: `You are an AI assistant that summarizes information about the Grison Club pillars.
+  prompt: `Vous êtes un assistant IA qui résume les informations sur les piliers du Grison Club.
 
-  Summarize the following information about the Education, Culture and Environment pillars into a concise summary.
+  Résumez de manière concise les informations suivantes sur les piliers Éducation, Culture et Environnement.
 
-  Education: {{{educationDescription}}}
-  Culture: {{{cultureDescription}}}
-  Environment: {{{environmentDescription}}}
+  Éducation : {{{educationDescription}}}
+  Culture : {{{cultureDescription}}}
+  Environnement : {{{environmentDescription}}}
 
-  Summary: `,
+  Résumé : `,
 });
 
 const summarizeClubPillarsFlow = ai.defineFlow(
