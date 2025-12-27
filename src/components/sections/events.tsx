@@ -4,10 +4,11 @@ import { ArrowRight, Calendar, ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import ReboisementImage from '../../../image/Reboisement.jpeg';
+import LeadershipImage from '../../../image/Leadership.jpg';
 
 const events = [
   { title: 'Campagne de Reboisement', category: 'Environnement', date: '12 Oct 2024', img: ReboisementImage },
-  { title: 'Séminaire Leadership', category: 'Éducation', date: '05 Nov 2024', img: 'https://images.unsplash.com/photo-1554936970-ce06538caf54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { title: 'Séminaire Leadership', category: 'Éducation', date: '05 Nov 2024', img: LeadershipImage },
   { title: 'Dons aux Orphelinats', category: 'Social', date: '20 Déc 2024', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
 ];
 
