@@ -92,10 +92,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#adhesion"
+                  href="/ressources"
                   className="hover:text-primary transition-colors"
                 >
-                  Adhésion
+                  Ressources
                 </Link>
               </li>
             </ul>

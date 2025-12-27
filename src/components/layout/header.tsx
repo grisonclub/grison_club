@@ -17,36 +17,40 @@ const navLinks = [
   { href: '/a-propos', label: 'À propos' },
   { href: '/#clubs', label: 'Clubs' },
   { href: '/#projets', label: 'Nos Projets' },
-  { href: '/#adhesion', label: 'Adhésion' },
+  { href: '/ressources', label: 'Ressources' },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [activeMenu, setActiveMenu] = React.useState('');
 
   React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
     if (href.startsWith('/#')) {
-      // It's an anchor link, but we might not be on the home page.
-      // First, navigate to home page if we are not there.
-      if (window.location.pathname !== '/') {
-        window.location.href = `/${href.substring(1)}`;
+      const path = href.split('#')[0];
+      const id = href.split('#')[1];
+
+      if (window.location.pathname !== path && path !== '/') {
+        window.location.href = href;
         return;
       }
       
-      const id = href.substring(2);
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } else {
+        window.location.href = href;
     }
   };
 
@@ -78,7 +82,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map(link => (
             <Link
               key={link.href}
@@ -90,7 +94,7 @@ export default function Header() {
                 }
               }}
               className={cn(
-                'font-medium transition-colors hover:text-primary',
+                'px-4 py-2 rounded-md font-medium transition-colors hover:text-primary',
                 isScrolled
                   ? 'text-slate-600 dark:text-slate-300'
                   : 'text-slate-200'
@@ -99,7 +103,7 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-emerald-500/30">
+          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-emerald-500/30 ml-4">
             <Heart size={18} className="mr-2" />
             Faire un Don
           </Button>
