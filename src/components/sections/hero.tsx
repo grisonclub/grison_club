@@ -16,7 +16,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-start overflow-hidden">
+    <section id="hero" className="relative h-screen w-full">
       <div className="absolute inset-0 z-0">
         <Image
           src={HeaderImage}
@@ -27,34 +27,36 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60"></div>
       </div>
-      <div className="container mx-auto px-4 md:px-6 relative z-10 text-left text-white">
-        <div className="max-w-3xl">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-900/30 backdrop-blur-sm text-emerald-300 font-semibold mb-6">
-            Association à but non lucratif • Guinée
-          </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
-            Former, Inspirer, <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
-              Agir pour Demain
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-xl mb-10 leading-relaxed">
-            Une jeunesse formée et engagée est le moteur d'une transformation sociale durable. Alors que les défis mondiaux s'intensifient, nos bénévoles répondent présents quotidiennement pour bâtir l'avenir de leurs localités. Le moment est venu de servir votre communauté : Rejoignez-nous maintenant.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-start">
-            <Button onClick={() => scrollToSection('adhesion')} size="lg" className="w-full sm:w-auto bg-primary hover:bg-emerald-500 text-white hover:text-slate-900 px-8 py-3 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/40">
-              Devenir Membre <ChevronRight size={20} className="ml-2" />
-            </Button>
-            <Button onClick={() => scrollToSection('clubs')} variant="outline" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-8 py-3 rounded-full font-bold text-lg transition-all">
-              Découvrir nos Clubs
-            </Button>
-          </div>
-          <div className="mt-8">
-            <div className="inline-block bg-slate-800/50 backdrop-blur border border-white/10 p-4 rounded-xl">
-              <p className="text-xs font-bold text-slate-300 uppercase tracking-wider">Siège Social</p>
-              <div className="flex items-center gap-2 text-slate-200 mt-2">
-                <MapPin size={16} className="text-primary" />
-                <span className="font-medium">Coyah, République de Guinée</span>
+      <div className="relative z-10 flex h-full items-center justify-start py-20">
+        <div className="container mx-auto px-4 md:px-6 text-left text-white">
+          <div className="max-w-3xl">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-900/30 backdrop-blur-sm text-emerald-300 font-semibold mb-6">
+              Association à but non lucratif • Guinée
+            </div>
+            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+              Former, Inspirer, <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+                Agir pour Demain
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-300 max-w-xl mb-10 leading-relaxed">
+              Une jeunesse formée et engagée est le moteur d'une transformation sociale durable. Alors que les défis mondiaux s'intensifient, nos bénévoles répondent présents quotidiennement pour bâtir l'avenir de leurs localités. Le moment est venu de servir votre communauté : Rejoignez-nous maintenant.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
+              <Button onClick={() => scrollToSection('adhesion')} size="lg" className="w-full sm:w-auto bg-primary hover:bg-emerald-500 text-white hover:text-slate-900 px-8 py-3 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-emerald-500/40">
+                Devenir Membre <ChevronRight size={20} className="ml-2" />
+              </Button>
+              <Button onClick={() => scrollToSection('clubs')} variant="outline" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-8 py-3 rounded-full font-bold text-lg transition-all">
+                Découvrir nos Clubs
+              </Button>
+            </div>
+            <div className="mt-8">
+              <div className="inline-block bg-slate-800/50 backdrop-blur border border-white/10 p-4 rounded-xl">
+                <p className="text-xs font-bold text-slate-300 uppercase tracking-wider">Siège Social</p>
+                <div className="flex items-center gap-2 text-slate-200 mt-2">
+                  <MapPin size={16} className="text-primary" />
+                  <span className="font-medium">Coyah, République de Guinée</span>
+                </div>
               </div>
             </div>
           </div>

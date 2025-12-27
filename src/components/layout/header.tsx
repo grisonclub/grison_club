@@ -62,7 +62,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
-          className="flex items-center gap-2"
+          className="flex items-center gap-3"
           onClick={() => window.scrollTo(0, 0)}
         >
           <Logo className="h-10 w-auto" />
@@ -78,7 +78,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map(link => (
             <Link
               key={link.href}
