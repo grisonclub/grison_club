@@ -12,11 +12,11 @@ const events = [
 
 export default function Events() {
   return (
-    <section id="actualites" className="py-20 bg-slate-50 dark:bg-slate-900/50">
+    <section id="projets" className="py-20 bg-slate-50 dark:bg-slate-900/50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Nos Campagnes sur le terrain</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Nos Projets Récents</h2>
             <p className="text-slate-600 dark:text-slate-400">Suivez nos dernières initiatives et événements marquants.</p>
           </div>
           <Button variant="link" className="hidden md:flex items-center gap-2 text-primary font-bold hover:underline">

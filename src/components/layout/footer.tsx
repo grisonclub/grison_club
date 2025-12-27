@@ -84,10 +84,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#actualites"
+                  href="/#projets"
                   className="hover:text-primary transition-colors"
                 >
-                  Événements
+                  Nos Projets
                 </Link>
               </li>
               <li>
