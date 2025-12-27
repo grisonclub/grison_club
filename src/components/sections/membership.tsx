@@ -5,15 +5,15 @@ import { Handshake, PlusCircle } from 'lucide-react';
 
 export default function Membership() {
   return (
-    <section id="adhesion" className="py-20 bg-amber-50 dark:bg-slate-900">
+    <section id="adhesion" className="py-16 bg-amber-50 dark:bg-slate-900">
       <div className="container mx-auto px-4 text-center">
         <div className="flex justify-center mb-6">
-          <Handshake className="text-primary" size={64} strokeWidth={1.5} />
+          <Handshake className="text-primary" size={56} strokeWidth={1.5} />
         </div>
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
           Prêt·e à faire <span className="text-primary">partie de l&apos;action</span> ?
         </h2>
-        <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 text-lg">
+        <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8 text-lg">
           Que vous soyez un leader dans l&apos;âme ou un passionné cherchant à faire la différence, il y a une place pour vous.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
