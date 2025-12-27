@@ -69,7 +69,7 @@ export default function Header() {
           className="flex items-center gap-3"
           onClick={() => window.scrollTo(0, 0)}
         >
-          <Logo className="h-10 w-auto" />
+          <Logo className="h-12 w-auto" />
           <span
             className={cn(
               'text-2xl font-bold tracking-tight',

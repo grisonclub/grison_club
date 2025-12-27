@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <Logo className="h-8 w-auto" />
+              <Logo className="h-12 w-auto" />
               <span className="text-2xl font-bold text-white">
                 Grison<span className="text-primary">Club</span>
               </span>
