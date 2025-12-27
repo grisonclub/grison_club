@@ -16,7 +16,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative h-screen w-full">
+    <section id="hero" className="relative w-full min-h-screen flex items-center">
       <div className="absolute inset-0 z-0">
         <Image
           src={HeaderImage}
@@ -27,7 +27,7 @@ export default function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60"></div>
       </div>
-      <div className="relative z-10 flex h-full items-center justify-start py-20">
+      <div className="relative z-10 w-full pt-32 pb-16 md:pt-20">
         <div className="container mx-auto px-4 md:px-6 text-left text-white">
           <div className="max-w-3xl">
             <div className="inline-block px-4 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-900/30 backdrop-blur-sm text-emerald-300 font-semibold mb-6">
