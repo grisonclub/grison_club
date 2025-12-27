@@ -3,14 +3,11 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, ChevronRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import ReboisementImage from '../../../image/Reboisement.jpeg';
-import LeadershipImage from '../../../image/Leadership.jpg';
-import OrphelinatsImage from '../../../image/Orphelinats.jpg';
 
 const events = [
-  { title: 'Campagne de Reboisement', category: 'Environnement', date: '12 Oct 2024', img: ReboisementImage },
-  { title: 'Séminaire Leadership', category: 'Éducation', date: '05 Nov 2024', img: LeadershipImage },
-  { title: 'Dons aux Orphelinats', category: 'Social', date: '20 Déc 2024', img: OrphelinatsImage },
+  { title: 'Campagne de Reboisement', category: 'Environnement', date: '12 Oct 2024', img: '/images/Reboisement.jpeg' },
+  { title: 'Séminaire Leadership', category: 'Éducation', date: '05 Nov 2024', img: '/images/Leadership.jpg' },
+  { title: 'Dons aux Orphelinats', category: 'Social', date: '20 Déc 2024', img: '/images/Orphelinats.jpg' },
 ];
 
 export default function Events() {
