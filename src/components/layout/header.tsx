@@ -14,7 +14,7 @@ import {
 import { Logo } from '../logo';
 
 const navLinks = [
-  { href: '/a-propos/histoire', label: 'À propos' },
+  { href: '/a-propos', label: 'À propos' },
   { href: '/#clubs', label: 'Clubs' },
   { href: '/#actualites', label: 'Actualités' },
   { href: '/#adhesion', label: 'Adhésion' },
