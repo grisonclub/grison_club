@@ -30,6 +30,18 @@ export default function Footer() {
     setYear(new Date().getFullYear());
   }, []);
 
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('/#')) {
+      const id = href.split('#')[1];
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+        window.location.href = href;
+    }
+  };
+
   return (
     <footer id="footer" className="bg-slate-950 text-slate-400 pt-16 pb-8">
       <div className="container mx-auto px-4">
@@ -68,23 +80,26 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/a-propos"
+                  href="/#a-propos"
+                  onClick={(e) => { e.preventDefault(); handleNavClick('/#a-propos'); }}
                   className="hover:text-primary transition-colors"
                 >
-                  Qui sommes-nous
+                  À propos
                 </Link>
               </li>
               <li>
                 <Link
                   href="/#clubs"
+                  onClick={(e) => { e.preventDefault(); handleNavClick('/#clubs'); }}
                   className="hover:text-primary transition-colors"
                 >
-                  Nos Clubs
+                  Clubs
                 </Link>
               </li>
               <li>
                 <Link
                   href="/#projets"
+                   onClick={(e) => { e.preventDefault(); handleNavClick('/#projets'); }}
                   className="hover:text-primary transition-colors"
                 >
                   Nos Projets
@@ -92,10 +107,11 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/ressources"
+                  href="/#footer"
+                   onClick={(e) => { e.preventDefault(); handleNavClick('/#footer'); }}
                   className="hover:text-primary transition-colors"
                 >
-                  Ressources
+                  Contact
                 </Link>
               </li>
             </ul>
