@@ -34,7 +34,7 @@ export default function RootLayout({
         )}
       >
         <Header />
-        <div className="relative flex min-h-dvh flex-col pt-16">
+        <div className="relative flex min-h-dvh flex-col">
           <main className="flex-1">{children}</main>
           <PreFooter />
           <Footer />
