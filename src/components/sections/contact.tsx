@@ -66,7 +66,7 @@ export default function Contact() {
                 </div>
                 <div>
                     <h3 className="font-semibold">Email</h3>
-                    <a href="mailto:contact@grisonclub.org" className="text-muted-foreground hover:text-primary transition-colors">contact@grisonclub.org</a>
+                    <a href="mailto:grisonclub@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">grisonclub@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -75,7 +75,7 @@ export default function Contact() {
                 </div>
                 <div>
                     <h3 className="font-semibold">Téléphone</h3>
-                    <p className="text-muted-foreground">+224 123 456 789</p>
+                    <p className="text-muted-foreground">+224 611 10 52 20</p>
                 </div>
               </div>
             </div>

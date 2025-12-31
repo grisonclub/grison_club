@@ -14,10 +14,10 @@ import {
 import { Logo } from '../logo';
 
 const navLinks = [
-  { href: '/a-propos', label: 'À propos' },
+  { href: '/#a-propos', label: 'À propos' },
   { href: '/#clubs', label: 'Clubs' },
   { href: '/#projets', label: 'Nos Projets' },
-  { href: '/ressources', label: 'Ressources' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -37,13 +37,7 @@ export default function Header() {
   const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
     if (href.startsWith('/#')) {
-      const path = href.split('#')[0];
       const id = href.split('#')[1];
-
-      if (window.location.pathname !== path && path !== '/') {
-        window.location.href = href;
-        return;
-      }
       
       const element = document.getElementById(id);
       if (element) {
