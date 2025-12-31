@@ -17,7 +17,7 @@ const navLinks = [
   { href: '/#a-propos', label: 'À propos' },
   { href: '/#clubs', label: 'Clubs' },
   { href: '/#projets', label: 'Nos Projets' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/#footer', label: 'Contact' },
 ];
 
 export default function Header() {
