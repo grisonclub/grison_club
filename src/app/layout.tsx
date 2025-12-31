@@ -5,6 +5,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import PreFooter from '@/components/layout/pre-footer';
+import ConstructionBanner from '@/components/layout/construction-banner';
 
 export const metadata: Metadata = {
   title: 'Grison Club - Former, Inspirer, Agir',
@@ -32,6 +33,7 @@ export default function RootLayout({
           'dark:bg-slate-950 dark:text-slate-200'
         )}
       >
+        <ConstructionBanner />
         <Header />
         <div className="relative flex min-h-dvh flex-col">
           <main className="flex-1">{children}</main>
