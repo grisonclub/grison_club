@@ -14,10 +14,10 @@ import {
 import { Logo } from '../logo';
 
 const navLinks = [
-  { href: '#a-propos', label: 'À propos' },
-  { href: '#clubs', label: 'Clubs' },
-  { href: '#actualites', label: 'Actualités' },
-  { href: '#adhesion', label: 'Adhésion' },
+  { href: '/#a-propos', label: 'À propos' },
+  { href: '/#clubs', label: 'Clubs' },
+  { href: '/#projets', label: 'Nos Projets' },
+  { href: '/#footer', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -29,21 +29,28 @@ export default function Header() {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
+  const handleNavClick = (href: string) => {
     setIsMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('/#')) {
+      const id = href.split('#')[1];
+      
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+        window.location.href = href;
     }
   };
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
         isScrolled
           ? 'bg-white shadow-lg py-2 dark:bg-slate-900/80 dark:backdrop-blur-sm'
           : 'bg-transparent py-4'
@@ -52,10 +59,10 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
-          className="flex items-center gap-2"
+          className="flex items-center gap-3"
           onClick={() => window.scrollTo(0, 0)}
         >
-          <Logo className="h-10 w-auto" />
+          <Logo className="h-12 w-auto" />
           <span
             className={cn(
               'text-2xl font-bold tracking-tight',
@@ -68,22 +75,28 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-1 md:flex">
           {navLinks.map(link => (
-            <button
+            <Link
               key={link.href}
-              onClick={() => scrollToSection(link.href.substring(1))}
+              href={link.href}
+              onClick={(e) => {
+                if (link.href.startsWith('/#')) {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                }
+              }}
               className={cn(
-                'font-medium transition-colors hover:text-primary',
+                'px-4 py-2 rounded-md font-medium transition-colors hover:text-primary',
                 isScrolled
                   ? 'text-slate-600 dark:text-slate-300'
-                  : 'text-slate-200'
+                  : 'text-white hover:text-primary'
               )}
             >
               {link.label}
-            </button>
+            </Link>
           ))}
-          <Button className="bg-primary hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-primary/30">
+          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-lg hover:shadow-emerald-500/30 ml-4">
             <Heart size={18} className="mr-2" />
             Faire un Don
           </Button>
@@ -112,12 +125,20 @@ export default function Header() {
               <div className="flex flex-col items-center gap-4">
                 {navLinks.map(link => (
                   <SheetClose asChild key={link.href}>
-                    <button
-                      onClick={() => scrollToSection(link.href.substring(1))}
+                    <Link
+                      href={link.href}
+                      onClick={(e) => {
+                          if (link.href.startsWith('/#')) {
+                              e.preventDefault();
+                              handleNavClick(link.href);
+                          } else {
+                              setIsMenuOpen(false);
+                          }
+                      }}
                       className="text-slate-600 dark:text-slate-300 font-medium text-lg py-2"
                     >
                       {link.label}
-                    </button>
+                    </Link>
                   </SheetClose>
                 ))}
                 <Button className="bg-primary text-white px-8 py-3 rounded-full font-bold mt-2">

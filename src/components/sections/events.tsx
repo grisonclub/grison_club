@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, ChevronRight } from 'lucide-react';
@@ -5,19 +6,19 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 
 const events = [
-  { title: 'Campagne de Reboisement', category: 'Environnement', date: '12 Oct 2024', img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { title: 'Séminaire Leadership', category: 'Éducation', date: '05 Nov 2024', img: 'https://images.unsplash.com/photo-1544531679-6064e2a67c0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { title: 'Dons aux Orphelinats', category: 'Social', date: '20 Déc 2024', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { title: 'Campagne de Reboisement', category: 'Environnement', date: '10 Août 2024', img: '/images/Reboisement.jpeg' },
+  { title: 'Séminaire Leadership', category: 'Éducation', date: '18 Octobre 2022', img: '/images/Leadership.jpg' },
+  { title: 'Dons aux Orphelinats', category: 'Social', date: '10 Juin 2024', img: '/images/Orphelinats.jpg' },
 ];
 
 export default function Events() {
   return (
-    <section id="actualites" className="py-20 bg-slate-50 dark:bg-slate-900/50">
+    <section id="projets" className="py-20 bg-slate-50 dark:bg-slate-900/50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-end mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Nos Actions Récentes</h2>
-            <p className="text-slate-600 dark:text-slate-400">Suivez nos campagnes sur le terrain.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2">Nos Projets Récents</h2>
+            <p className="text-slate-600 dark:text-slate-400">Suivez nos dernières initiatives et événements marquants.</p>
           </div>
           <Button variant="link" className="hidden md:flex items-center gap-2 text-primary font-bold hover:underline">
             Voir tout <ArrowRight size={20}/>
