@@ -33,9 +33,11 @@ export default function RootLayout({
           'dark:bg-slate-950 dark:text-slate-200'
         )}
       >
-        <ConstructionBanner />
-        <Header />
-        <div className="relative flex min-h-dvh flex-col">
+        <div className="fixed top-0 left-0 right-0 z-50">
+          <ConstructionBanner />
+          <Header />
+        </div>
+        <div className="relative flex min-h-dvh flex-col pt-[calc(3.25rem+4rem)]">
           <main className="flex-1">{children}</main>
           <PreFooter />
           <Footer />

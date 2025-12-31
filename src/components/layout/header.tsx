@@ -23,7 +23,6 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [activeMenu, setActiveMenu] = React.useState('');
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +50,7 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'relative z-40 transition-all duration-300',
         isScrolled
           ? 'bg-white shadow-lg py-2 dark:bg-slate-900/80 dark:backdrop-blur-sm'
           : 'bg-transparent py-4'
